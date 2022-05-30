@@ -1,8 +1,8 @@
 ---
 title: "Interactivity"
 linktitle: "10: Interactivity"
-date: "2021-07-12"
-due_date: "2021-07-12"
+date: "2022-07-11"
+due_date: "2022-07-11"
 due_time: "11:59 PM"
 toc: true
 menu:
@@ -45,7 +45,7 @@ To check that you put everything in the right places, you can download and unzip
 
 You'll need to insert your own code chunks where needed. Rather than typing them by hand (that's tedious and you might miscount the number of backticks!), use the "Insert" button at the top of the editing window, or type <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>i</kbd> on Windows, or <kbd>⌘</kbd> + <kbd>⌥</kbd> + <kbd>i</kbd> on macOS.
 
-<img src="/img/assignments/insert-chunk-button.png" width="19%" />
+<img src="../../../../../../../img/assignments/insert-chunk-button.png" width="19%" />
 
 ## Task 1: Reflection
 
@@ -70,7 +70,7 @@ Using the documentation for **flexdashboard** online, create a super basic dashb
 
 1. Knit the document with Tasks 1 and 2 in it to HTML and publish it to RPubs using the "Publish document" menu in the preview of the knitted file. Take note of the URL.
 
-    <img src="/slides/img/10/publish-document.png" width="30%" />
+    <img src="../../../../../../../slides/img/10/publish-document.png" width="30%" />
 
 2. Knit the dashboard from Task 3 to HTML and publish it to RPubs using the same menu. Take note of the URL.
 

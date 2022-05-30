@@ -1,9 +1,9 @@
 ---
 title: "Text"
 linktitle: "13: Text"
-date: "2021-07-19"
-start_date: "2021-07-19"
-end_date: "2021-07-23"
+date: "2022-07-18"
+start_date: "2022-07-18"
+end_date: "2022-07-22"
 menu:
   content:
     parent: Course content
@@ -28,7 +28,7 @@ slides: "13-slides"
     -   <i class="fas fa-external-link-square-alt"></i> [When It’s Ok to Use Word Clouds](https://www.vis4.net/blog/2015/01/when-its-ok-to-use-word-clouds/)
     -   <i class="fas fa-external-link-square-alt"></i> [The Class of 2011](http://www.nytimes.com/interactive/2011/06/10/education/commencement-speeches-graphic.html)
     -   <i class="fas fa-external-link-square-alt"></i> [Every time Ford and Kavanaugh dodged a question, in one chart](https://www.vox.com/policy-and-politics/2018/9/28/17914308/kavanaugh-ford-question-dodge-hearing-chart)
-    -   <i class="fab fa-twitter-square"></i> [Tweet by @s\_soroka](https://twitter.com/s_soroka/status/907941270735278085)
+    -   <i class="fab fa-twitter-square"></i> [Tweet by @s_soroka](https://twitter.com/s_soroka/status/907941270735278085)
 
 ### Questions to reflect on
 

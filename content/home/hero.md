@@ -20,7 +20,7 @@ design:
     text_color_light: true
 
 cta_note:
-  label: PMAP 8921 • Summer 2021<br>Andrew Young School of Policy Studies<br>Georgia State University
+  label: PMAP 8921 • Summer 2022<br>Andrew Young School of Policy Studies<br>Georgia State University
 ---
 
 **Use R, ggplot2, and the principles of graphic design to create beautiful and truthful visualizations of data**

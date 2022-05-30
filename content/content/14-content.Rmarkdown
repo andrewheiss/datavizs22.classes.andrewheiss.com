@@ -1,9 +1,9 @@
 ---
 title: "Enhancing graphics"
 linktitle: "14: Enhancing graphics"
-date: "2021-07-19"
-start_date: "2021-07-19"
-end_date: "2021-07-23"
+date: "2022-07-18"
+start_date: "2022-07-18"
+end_date: "2022-07-22"
 menu:
   content:
     parent: Course content

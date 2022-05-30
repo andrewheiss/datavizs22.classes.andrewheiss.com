@@ -1,7 +1,7 @@
 ---
 title: "Mini project 2"
-date: "2021-07-19"
-due_date: "2021-07-19"
+date: "2022-07-18"
+due_date: "2022-07-18"
 due_time: "11:59 PM"
 menu:
   assignment:
@@ -18,7 +18,7 @@ The United States has resettled more than 600,000 refugees from 60 different cou
 
 
 
-<img src="/img/assignments/refugees_welcome.jpg" width="70%" style="display: block; margin: auto;" />
+<img src="../../../../../../../img/assignments/refugees_welcome.jpg" width="70%" style="display: block; margin: auto;" />
 
 In this mini project, you will use **R, ggplot, and [Illustrator](https://www.adobe.com/products/illustrator.html), [Inkscape](https://inkscape.org/en/), or [Gravit Designer](https://www.designer.io/)** to explore where these refugees have come from.
 
@@ -164,7 +164,7 @@ This is just the `refugees_clean` data frame I gave you. You'll want to filter i
 
 
 ```
-## # A tibble: 6 x 7
+## # A tibble: 6 × 7
 ##   origin_country iso3  origin_region    origin_continent  year number year_date 
 ##   <chr>          <chr> <chr>            <chr>            <dbl>  <dbl> <date>    
 ## 1 Afghanistan    AFG   South Asia       Asia              2006    651 2006-01-01
@@ -189,7 +189,7 @@ refugees_countries_cumulative <- refugees_clean %>%
 
 
 ```
-## # A tibble: 6 x 7
+## # A tibble: 6 × 7
 ## # Groups:   origin_country [1]
 ##   origin_country iso3  origin_continent  year number year_date  cumulative_total
 ##   <chr>          <chr> <chr>            <dbl>  <dbl> <date>                <dbl>
@@ -214,7 +214,7 @@ refugees_continents <- refugees_clean %>%
 
 
 ```
-## # A tibble: 6 x 3
+## # A tibble: 6 × 3
 ## # Groups:   origin_continent [1]
 ##   origin_continent year_date  total
 ##   <chr>            <date>     <dbl>
@@ -242,7 +242,7 @@ refugees_continents_cumulative <- refugees_clean %>%
 
 
 ```
-## # A tibble: 6 x 4
+## # A tibble: 6 × 4
 ## # Groups:   origin_continent [1]
 ##   origin_continent year_date  total cumulative_total
 ##   <chr>            <date>     <dbl>            <dbl>

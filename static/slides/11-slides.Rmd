@@ -60,7 +60,7 @@ class: center middle main-title section-title-4
 
 .light[PMAP 8921: Data Visualization with R<br>
 Andrew Young School of Policy Studies<br>
-Summer 2021]
+Summer 2022]
 
 ]
 
@@ -365,7 +365,7 @@ recessions_raw <- fred_raw %>%
   filter(recession_delta != 0)
 
 recessions_fake_end <- recessions_raw %>% 
-  bind_rows(tibble(date = ymd("2021-06-01"),
+  bind_rows(tibble(date = ymd("2022-06-01"),
                    recession_delta = -1))
 
 recessions <- tibble(start = filter(recessions_fake_end, recession_delta == 1)$date,
@@ -553,7 +553,7 @@ http://www.dannydorling.org/books/SLOWDOWN/Illustrations.html
 ```{r unemp-inflation-path, echo=FALSE, fig.width=4.8, fig.height=4.2, out.width="100%"}
 unemp_inflation <- fred_raw %>% 
   filter(symbol %in% c("UNRATE", "FPCPITOTLZGUSA")) %>% 
-  pivot_wider(id = date, names_from = symbol, values_from = price) %>% 
+  pivot_wider(id_cols = date, names_from = symbol, values_from = price) %>% 
   rename(inflation = FPCPITOTLZGUSA, unemployment = UNRATE) %>% 
   mutate(year = year(date)) %>% 
   mutate_at(vars(inflation, unemployment), ~ . / 100) %>% 

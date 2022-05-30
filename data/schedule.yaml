@@ -4,9 +4,9 @@ lessons:
 
   - title: '<span class="content-title">Truth, beauty, and data + R and tidyverse</span>'
     session: "Session 1"
-    date: "June 7–11"
-    date_start: "June 7"
-    date_end: "June 11"
+    date: "June 6–10"
+    date_start: "June 6"
+    date_end: "June 10"
     content: "01-content"
     lesson: "01-lesson"
     example: "01-example"
@@ -15,9 +15,9 @@ lessons:
 
   - title: '<span class="content-title">Graphic design</span>'
     session: "Session 2"
-    date: "June 7–11"
-    date_start: "June 7"
-    date_end: "June 11"
+    date: "June 6–10"
+    date_start: "June 6"
+    date_end: "June 10"
     content: "02-content"
     lesson: "02-lesson"
     example: "02-example"
@@ -25,14 +25,14 @@ lessons:
     bg: 2
   
   - title: 'Assignments for sessions 1 and 2 due'
-    date: "June 14"
+    date: "June 13"
     bg: 4
 
   - title: '<span class="content-title">Mapping data to graphics</span>'
     session: "Session 3"
-    date: "June 14–18"
-    date_start: "June 14"
-    date_end: "June 18"
+    date: "June 13–17"
+    date_start: "June 13"
+    date_end: "June 17"
     content: "03-content"
     lesson: "03-lesson"
     example: "03-example"
@@ -45,9 +45,9 @@ lessons:
 
   - title: '<span class="content-title">Amounts and proportions</span>'
     session: "Session 4"
-    date: "June 14–18"
-    date_start: "June 14"
-    date_end: "June 18"
+    date: "June 13–17"
+    date_start: "June 13"
+    date_end: "June 17"
     content: "04-content"
     lesson: "04-lesson"
     example: "04-example"
@@ -55,14 +55,14 @@ lessons:
     bg: 1
 
   - title: 'Assignments for sessions 3 and 4 due'
-    date: "June 21"
+    date: "June 20"
     bg: 4
 
   - title: '<span class="content-title">Themes</span>'
     session: "Session 5"
-    date: "June 21–25"
-    date_start: "June 21"
-    date_end: "June 25"
+    date: "June 20–24"
+    date_start: "June 20"
+    date_end: "June 24"
     content: "05-content"
     lesson: "05-lesson"
     example: "05-example"
@@ -71,9 +71,9 @@ lessons:
 
   - title: '<span class="content-title">Uncertainty</span>'
     session: "Session 6"
-    date: "June 21–25"
-    date_start: "June 21"
-    date_end: "June 25"
+    date: "June 20–24"
+    date_start: "June 20"
+    date_end: "June 24"
     content: "06-content"
     lesson: "06-lesson"
     example: "06-example"
@@ -81,14 +81,14 @@ lessons:
     bg: 1
 
   - title: 'Assignments for sessions 5 and 6 due'
-    date: "June 28"
+    date: "June 27"
     bg: 4
 
   - title: '<span class="content-title">Relationships</span>'
     session: "Session 7"
-    date: "June 28–July 2"
-    date_start: "June 28"
-    date_end: "July 2"
+    date: "June 27–July 1"
+    date_start: "June 27"
+    date_end: "July 1"
     content: "07-content"
     lesson: "07-lesson"
     example: "07-example"
@@ -97,9 +97,9 @@ lessons:
   
   - title: '<span class="content-title">Comparisons</span>'
     session: "Session 8"
-    date: "June 28–July 2"
-    date_start: "June 28"
-    date_end: "July 2"
+    date: "June 27–July 1"
+    date_start: "June 27"
+    date_end: "July 1"
     content: "08-content"
     lesson: "08-lesson"
     example: "08-example"
@@ -142,14 +142,14 @@ lessons:
     bg: 2
   
   - title: 'Assignments for sessions 9 and 10 due'
-    date: "July 12"
+    date: "July 11"
     bg: 4
   
   - title: '<span class="content-title">Time</span>'
     session: "Session 11"
-    date: "July 12–16"
-    date_start: "July 12"
-    date_end: "July 16"
+    date: "July 11–15"
+    date_start: "July 11"
+    date_end: "July 15"
     content: "11-content"
     lesson: "11-lesson"
     example: "11-example"
@@ -158,9 +158,9 @@ lessons:
 
   - title: '<span class="content-title">Space</span>'
     session: "Session 12"
-    date: "July 12–16"
-    date_start: "July 12"
-    date_end: "July 16"
+    date: "July 11–15"
+    date_start: "July 11"
+    date_end: "July 15"
     content: "12-content"
     lesson: "12-lesson"
     example: "12-example"
@@ -168,19 +168,19 @@ lessons:
     bg: 2
 
   - title: 'Assignments for sessions 11 and 12 due'
-    date: "July 19"
+    date: "July 18"
     bg: 4
 
   - title: '<i class="fas fa-star"></i> **Mini project 2 due**'
-    date: "July 19"
+    date: "July 18"
     assignment: "02-mini-project"
     bg: 3
   
   - title: '<span class="content-title">Text</span>'
     session: "Session 13"
-    date: "July 19–23"
-    date_start: "July 19"
-    date_end: "July 23"
+    date: "July 18–22"
+    date_start: "July 18"
+    date_end: "July 22"
     content: "13-content"
     lesson: "13-lesson"
     example: "13-example"
@@ -189,9 +189,9 @@ lessons:
   
   - title: '<span class="content-title">Enhancing graphics</span>'
     session: "Session 14"
-    date: "July 19–23"
-    date_start: "July 19"
-    date_end: "July 23"
+    date: "July 18–22"
+    date_start: "July 18"
+    date_end: "July 22"
     content: "14-content"
     lesson: "14-lesson"
     example: "14-example"
@@ -199,7 +199,7 @@ lessons:
     bg: 2
 
   - title: 'Assignments for sessions 13 and 14 due'
-    date: "July 26"
+    date: "July 25"
     bg: 4
     bottomborder: True
 
@@ -208,9 +208,9 @@ lessons:
   
   - title: '<span class="content-title">Truth, beauty, and data revisited</span>'
     session: "Session 15"
-    date: "July 26"
-    date_start: "July 26"
-    date_end: "July 26"
+    date: "July 25"
+    date_start: "July 25"
+    date_end: "July 25"
     content: "15-content"
     lesson: "15-lesson"
     example: "15-example"
@@ -218,10 +218,10 @@ lessons:
     bg: 1
   
   - title: 'Assignment for session 15 due'
-    date: "July 26"
+    date: "July 25"
     bg: 4
   
   - title: '<i class="fas fa-star"></i> **Final project due** (submit online by 11:59 PM)'
-    date: "July 31"
+    date: "July 30"
     assignment: "final-project"
     bg: 3

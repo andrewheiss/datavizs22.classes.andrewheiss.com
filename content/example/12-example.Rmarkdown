@@ -1,9 +1,9 @@
 ---
 title: "Space"
 linktitle: "12: Space"
-date: "2021-07-12"
-start_date: "2021-07-12"
-end_date: "2021-07-16"
+date: "2022-07-11"
+start_date: "2022-07-11"
+end_date: "2022-07-15"
 toc: yes
 menu:
   example:
@@ -298,9 +298,7 @@ ggplot() +
 
 Plotting places like Alaska, Hawaii, and Puerto Rico gets a little tricky since they're far away from the contiguous 48 states. There's an easy way to handle it though!
 
-First, there's a package named [**tigris**](https://github.com/walkerke/tigris) that provides a neat interface for working with spatial data from the [US Census's TIGER shapefiles](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html) (like downloading them directly for you). **tigris** is on CRAN, but as of May 2021, it's an older version from July 2020 that's missing some neat additions. Install the latest development version [following the instructions at GitHub](https://github.com/walkerke/tigris) (i.e. run `remotes::install_github('walkerke/tigris')` in your console).
-
-In addition to providing a ton of functions for getting shapefiles for states, counties, voting districts, Tribal areas, military bases, and dozens of other things, **tigris** has a `shift_geometry()` function that will change the coordinates for Alaska, Hawaii, and Puerto Rico so that they end up in Mexico and the Gulf of Mexico.
+First, there's a package named [**tigris**](https://github.com/walkerke/tigris) that provides a neat interface for working with spatial data from the [US Census's TIGER shapefiles](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html). In addition to providing a ton of functions for getting shapefiles for states, counties, voting districts, Tribal areas, military bases, and dozens of other things, **tigris** has a `shift_geometry()` function that will change the coordinates for Alaska, Hawaii, and Puerto Rico so that they end up in Mexico and the Gulf of Mexico.
 
 
 ```{r tigris-shifting, warning=FALSE, message=FALSE}

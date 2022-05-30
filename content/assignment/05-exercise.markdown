@@ -1,8 +1,8 @@
 ---
 title: "Themes"
 linktitle: "5: Themes"
-date: "2021-06-28"
-due_date: "2021-06-28"
+date: "2022-06-27"
+due_date: "2022-06-27"
 due_time: "11:59 PM"
 toc: true
 menu:
@@ -55,7 +55,7 @@ For this assignment, you're going to forget all the wonderful CRAP design princi
 
 When you're all done, click on the "Knit" button at the top of the editing window and create an HTML or Word version (or PDF if you've [installed **tinytex**](/resource/install/#install-tinytex) and you [followed the instructions here for how to make Cairo fonts work with knitted PDFs](https://www.andrewheiss.com/blog/2017/09/27/working-with-r-cairo-graphics-custom-fonts-and-ggplot/)) of your document. 
 
-<img src="/img/assignments/knit-button.png" width="30%" />
+<img src="../../../../../../../img/assignments/knit-button.png" width="30%" />
 
 Include a chunk that uses `ggsave()` to save the plot to your computer as a PNG file. 
 

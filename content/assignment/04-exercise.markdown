@@ -1,8 +1,8 @@
 ---
 title: "Amounts and proportions"
 linktitle: "4: Amounts and proportions"
-date: "2021-06-21"
-due_date: "2021-06-21"
+date: "2022-06-20"
+due_date: "2022-06-20"
 due_time: "11:59 PM"
 toc: true
 menu:
@@ -66,11 +66,11 @@ You don't need to make these super fancy, but if you're feeling brave, experimen
 
 You'll need to insert your own code chunks where needed. Rather than typing them by hand (that's tedious and you might miscount the number of backticks!), use the "Insert" button at the top of the editing window, or type <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>i</kbd> on Windows, or <kbd>⌘</kbd> + <kbd>⌥</kbd> + <kbd>i</kbd> on macOS.
 
-<img src="/img/assignments/insert-chunk-button.png" width="19%" />
+<img src="../../../../../../../img/assignments/insert-chunk-button.png" width="19%" />
 
 
 ## Turning everything in
 
 When you're all done, click on the "Knit" button at the top of the editing window and create an HTML or Word version (or PDF if you've [installed **tinytex**](/resource/install/#install-tinytex)) of your document. Upload that file to iCollege.
 
-<img src="/img/assignments/knit-button.png" width="30%" />
+<img src="../../../../../../../img/assignments/knit-button.png" width="30%" />

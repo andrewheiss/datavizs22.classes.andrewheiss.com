@@ -1,8 +1,8 @@
 ---
 title: "Enhancing graphics"
 linktitle: "14: Enhancing graphics"
-date: "2021-07-26"
-due_date: "2021-07-26"
+date: "2022-07-25"
+due_date: "2022-07-25"
 due_time: "11:59 PM"
 toc: true
 menu:
@@ -52,7 +52,7 @@ Write your reflection for the day's readings.
 
 Recreate this plot (or something like it):
 
-<img src="/img/assignments/hot-dogs.gif" width="100%" />
+<img src="../../../../../../../img/assignments/hot-dogs.gif" width="100%" />
 
 Create and save a basic bar chart of hot dog eating contest winners using the code provided. Open the resulting file in Illustrator or Gravit Designer. Open the PDF in Illustrator; open the SVG in Gravit Designer.
 

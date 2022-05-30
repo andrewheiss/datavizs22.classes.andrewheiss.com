@@ -71,7 +71,7 @@ privacy_pack: false
 # Enable visitors to edit pages?
 #   `repo` defines the repository URL. `editable` defines which page types can be edited.
 edit_page:
-  repo_url: 'https://github.com/andrewheiss/datavizs21.classes.andrewheiss.com'
+  repo_url: 'https://github.com/andrewheiss/datavizs22.classes.andrewheiss.com'
   content_dir: ''
   repo_branch: main
   editable:
@@ -111,14 +111,14 @@ instructor:
 
 course:
   number: "PMAP 8921"
-  semester: "Summer 2021"
+  semester: "Summer 2022"
   days: "Any day"
   time: "Any time"
   # location: "Online only (thanks, COVID-19, for ruining everything)"
-  dates: "June 7–July 26, 2021"
-  github: "andrewheiss/datavizs21.classes.andrewheiss.com"
-  copyrightYear: "2021"
-  slack: "https://gsudatavizs21.slack.com"
+  dates: "June 6–July 25, 2022"
+  github: "andrewheiss/datavizs22.classes.andrewheiss.com"
+  copyrightYear: "2022"
+  slack: "https://gsudatavizs22.slack.com"
 
 university: 
   name: Georgia State University
@@ -134,7 +134,7 @@ school:
 ############################
 
 # Default image for social sharing and search engines. Place image in `static/img/` folder and specify image name here.
-sharing_image: "social-image-s21.png"
+sharing_image: "social-image-s22.png"
 
 # Twitter username (without @). Used when a visitor shares your site on Twitter.
 twitter: "andrewheiss"

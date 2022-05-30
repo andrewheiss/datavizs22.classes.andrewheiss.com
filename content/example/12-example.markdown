@@ -1,9 +1,9 @@
 ---
 title: "Space"
 linktitle: "12: Space"
-date: "2021-07-12"
-start_date: "2021-07-12"
-end_date: "2021-07-16"
+date: "2022-07-11"
+start_date: "2022-07-11"
+end_date: "2022-07-15"
 toc: yes
 menu:
   example:
@@ -289,9 +289,7 @@ ggplot() +
 
 Plotting places like Alaska, Hawaii, and Puerto Rico gets a little tricky since they're far away from the contiguous 48 states. There's an easy way to handle it though!
 
-First, there's a package named [**tigris**](https://github.com/walkerke/tigris) that provides a neat interface for working with spatial data from the [US Census's TIGER shapefiles](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html) (like downloading them directly for you). **tigris** is on CRAN, but as of May 2021, it's an older version from July 2020 that's missing some neat additions. Install the latest development version [following the instructions at GitHub](https://github.com/walkerke/tigris) (i.e. run `remotes::install_github('walkerke/tigris')` in your console).
-
-In addition to providing a ton of functions for getting shapefiles for states, counties, voting districts, Tribal areas, military bases, and dozens of other things, **tigris** has a `shift_geometry()` function that will change the coordinates for Alaska, Hawaii, and Puerto Rico so that they end up in Mexico and the Gulf of Mexico.
+First, there's a package named [**tigris**](https://github.com/walkerke/tigris) that provides a neat interface for working with spatial data from the [US Census's TIGER shapefiles](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html). In addition to providing a ton of functions for getting shapefiles for states, counties, voting districts, Tribal areas, military bases, and dozens of other things, **tigris** has a `shift_geometry()` function that will change the coordinates for Alaska, Hawaii, and Puerto Rico so that they end up in Mexico and the Gulf of Mexico.
 
 
 
@@ -442,7 +440,7 @@ head(rivers_na)
 ## Dimension:     XY
 ## Bounding box:  xmin: -100 ymin: 29 xmax: -86 ymax: 36
 ## Geodetic CRS:  WGS 84
-## # A tibble: 6 x 38
+## # A tibble: 6 × 38
 ##   featurecla scalerank rivernum dissolve  name  name_alt note  name_full min_zoom strokeweig uident min_label label wikidataid name_ar name_bn name_de
 ##   <chr>          <dbl>    <dbl> <chr>     <chr> <chr>    <chr> <chr>        <dbl>      <dbl>  <dbl>     <dbl> <chr> <chr>      <chr>   <chr>   <chr>  
 ## 1 River             10    22360 22360Riv… Colo… <NA>     ID i… Colorado…      6         0.3  1.99e6       7   Colo… Q847785    <NA>    <NA>    Colora…
@@ -480,7 +478,7 @@ ga_rivers_na <- st_intersection(only_georgia, rivers_na)
 ```
 
 ```
-## Error in geos_op2_geom("intersection", x, y): st_crs(x) == st_crs(y) is not TRUE
+## Error in geos_op2_geom("intersection", x, y, ...): st_crs(x) == st_crs(y) is not TRUE
 ```
 
 Oh no! An error! It's complaining that the reference systems used in these two datasets don't match. We can check the CRS with `st_crs()`:
@@ -608,15 +606,15 @@ head(ga_schools)
 ## Dimension:     XY
 ## Bounding box:  xmin: 2100000 ymin: 320000 xmax: 2200000 ymax: 5e+05
 ## Projected CRS: NAD83 / Georgia West (ftUS)
-## # A tibble: 6 x 17
-##      ID  DATA COUNTY  DISTRICT  SCHOOLNAME   GRADES ADDRESS CITY  STATE ZIP   TOTAL SCHOOLID DOE_CONGRE CONGRESS SENATE HOUSE                 geometry
-##   <dbl> <dbl> <chr>   <chr>     <chr>        <chr>  <chr>   <chr> <chr> <chr> <dbl>    <dbl> <chr>      <chr>    <chr>  <chr>              <POINT [m]>
-## 1  4313   224 Early   Early Co… Early Count… PK,KK… 283 Ma… Blak… GA    3982…  1175    43549 2          002      011    149           (2052182 494322)
-## 2  4321   227 Early   Early Co… ETN Eckerd … 06,07… 313 E … Blak… GA    3982…    30    47559 2          002      011    149            (2053200 5e+05)
-## 3  4329   226 Early   Early Co… Early Count… 06,07… 12053 … Blak… GA    3982…   539    43550 2          002      011    149            (2055712 5e+05)
-## 4  4337   225 Early   Early Co… Early Count… 09,10… 12020 … Blak… GA    3982…   716    43552 2          002      011    149            (2055712 5e+05)
-## 5  4345   189 Decatur Decatur … John Johnso… PK,KK… 1947 S… Bain… GA    3981…   555    43279 2          002      011    172           (2168090 321781)
-## 6  4353   192 Decatur Decatur … Potter Stre… PK,KK… 725 Po… Bain… GA    3981…   432    43273 2          002      011    172           (2168751 327375)
+## # A tibble: 6 × 17
+##      ID  DATA COUNTY  DISTRICT   SCHOOLNAME GRADES ADDRESS CITY  STATE ZIP   TOTAL SCHOOLID DOE_CONGRE CONGRESS SENATE HOUSE         geometry
+##   <dbl> <dbl> <chr>   <chr>      <chr>      <chr>  <chr>   <chr> <chr> <chr> <dbl>    <dbl> <chr>      <chr>    <chr>  <chr>      <POINT [m]>
+## 1  4313   224 Early   Early Cou… Early Cou… PK,KK… 283 Ma… Blak… GA    3982…  1175    43549 2          002      011    149   (2052182 494322)
+## 2  4321   227 Early   Early Cou… ETN Ecker… 06,07… 313 E … Blak… GA    3982…    30    47559 2          002      011    149    (2053200 5e+05)
+## 3  4329   226 Early   Early Cou… Early Cou… 06,07… 12053 … Blak… GA    3982…   539    43550 2          002      011    149    (2055712 5e+05)
+## 4  4337   225 Early   Early Cou… Early Cou… 09,10… 12020 … Blak… GA    3982…   716    43552 2          002      011    149    (2055712 5e+05)
+## 5  4345   189 Decatur Decatur C… John John… PK,KK… 1947 S… Bain… GA    3981…   555    43279 2          002      011    172   (2168090 321781)
+## 6  4353   192 Decatur Decatur C… Potter St… PK,KK… 725 Po… Bain… GA    3981…   432    43273 2          002      011    172   (2168751 327375)
 ```
 
 We have a bunch of columns like `GRADES` that has a list of what grades are included in the school, and `TOTAL`, which I'm guessing is the number of students. Let's map it!
@@ -697,7 +695,7 @@ ga_schools_fixed %>%
 ## Dimension:     XY
 ## Bounding box:  xmin: 2300000 ymin: 1400000 xmax: 2400000 ymax: 1500000
 ## Projected CRS: NAD83 / Georgia West (ftUS)
-## # A tibble: 6 x 4
+## # A tibble: 6 × 4
 ##   COUNTY   SCHOOLNAME                  TOTAL          geometry
 ##   <chr>    <chr>                       <dbl>       <POINT [m]>
 ## 1 Gwinnett Mill Creek High School       3997 (2384674 1482772)
@@ -729,7 +727,7 @@ ga_cities
 ```
 
 ```
-## # A tibble: 3 x 3
+## # A tibble: 3 × 3
 ##   city       lat  long
 ##   <chr>    <dbl> <dbl>
 ## 1 Atlanta   33.7 -84.4
@@ -754,7 +752,7 @@ ga_cities_geometry
 ## Dimension:     XY
 ## Bounding box:  xmin: -84 ymin: 32 xmax: -81 ymax: 34
 ## Geodetic CRS:  WGS 84
-## # A tibble: 3 x 2
+## # A tibble: 3 × 2
 ##   city        geometry
 ## * <chr>    <POINT [°]>
 ## 1 Atlanta     (-84 34)
@@ -825,7 +823,7 @@ some_addresses
 ```
 
 ```
-## # A tibble: 2 x 2
+## # A tibble: 2 × 2
 ##   name                                      address                                 
 ##   <chr>                                     <chr>                                   
 ## 1 The White House                           1600 Pennsylvania Ave NW, Washington, DC
@@ -844,7 +842,7 @@ geocoded_addresses
 
 
 ```
-## # A tibble: 2 x 3
+## # A tibble: 2 × 3
 ##   name                                        lat  long
 ##   <chr>                                     <dbl> <dbl>
 ## 1 The White House                            38.9 -77.0
@@ -869,7 +867,7 @@ addresses_geometry %>% select(-address)
 ## Dimension:     XY
 ## Bounding box:  xmin: -84 ymin: 34 xmax: -77 ymax: 39
 ## Geodetic CRS:  WGS 84
-## # A tibble: 2 x 2
+## # A tibble: 2 × 2
 ##   name                                         geometry
 ##   <chr>                                     <POINT [°]>
 ## 1 The White House                              (-77 39)
@@ -923,15 +921,15 @@ head(wdi_raw)
 ```
 
 ```
-## # A tibble: 6 x 11
-##   iso2c country                                SP.DYN.LE00.IN  year iso3c region             capital         longitude latitude income    lending     
-##   <chr> <chr>                                           <dbl> <dbl> <chr> <chr>              <chr>               <dbl>    <dbl> <chr>     <chr>       
-## 1 1A    Arab World                                       71.2  2015 ARB   Aggregates         <NA>                NA        NA   Aggregat… Aggregates  
-## 2 1W    World                                            71.9  2015 WLD   Aggregates         <NA>                NA        NA   Aggregat… Aggregates  
-## 3 4E    East Asia & Pacific (excluding high i…           74.5  2015 EAP   Aggregates         <NA>                NA        NA   Aggregat… Aggregates  
-## 4 7E    Europe & Central Asia (excluding high…           72.6  2015 ECA   Aggregates         <NA>                NA        NA   Aggregat… Aggregates  
-## 5 8S    South Asia                                       68.6  2015 SAS   Aggregates         <NA>                NA        NA   Aggregat… Aggregates  
-## 6 AD    Andorra                                          NA    2015 AND   Europe & Central … Andorra la Vel…      1.52     42.5 High inc… Not classif…
+## # A tibble: 6 × 11
+##   iso2c country                                       SP.DYN.LE00.IN  year iso3c region                capital       longitude latitude income lending
+##   <chr> <chr>                                                  <dbl> <dbl> <chr> <chr>                 <chr>             <dbl>    <dbl> <chr>  <chr>  
+## 1 1A    Arab World                                              71.2  2015 ARB   Aggregates            <NA>              NA        NA   Aggre… Aggreg…
+## 2 1W    World                                                   71.9  2015 WLD   Aggregates            <NA>              NA        NA   Aggre… Aggreg…
+## 3 4E    East Asia & Pacific (excluding high income)             74.5  2015 EAP   Aggregates            <NA>              NA        NA   Aggre… Aggreg…
+## 4 7E    Europe & Central Asia (excluding high income)           72.6  2015 ECA   Aggregates            <NA>              NA        NA   Aggre… Aggreg…
+## 5 8S    South Asia                                              68.6  2015 SAS   Aggregates            <NA>              NA        NA   Aggre… Aggreg…
+## 6 AD    Andorra                                                 NA    2015 AND   Europe & Central Asia Andorra la V…      1.52     42.5 High … Not cl…
 ```
 
 We have a bunch of columns here, but we care about two in particular: life expectancy, and the ISO3 code. This three-letter code is a standard system for identifying countries ([see the full list here](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)), and that column will let us combine this World Bank data with the global shapefile, which also has a column for the ISO3 code.
@@ -948,7 +946,7 @@ wdi_clean_small
 ```
 
 ```
-## # A tibble: 264 x 2
+## # A tibble: 264 × 2
 ##    life_expectancy iso3c
 ##              <dbl> <chr>
 ##  1            71.2 ARB  

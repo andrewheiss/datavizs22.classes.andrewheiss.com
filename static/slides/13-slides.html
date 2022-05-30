@@ -4,8 +4,8 @@
     <title>Text</title>
     <meta charset="utf-8" />
     <meta name="author" content="Andrew Heiss" />
-    <meta name="date" content="2021-06-22" />
-    <script src="libs/header-attrs-2.9/header-attrs.js"></script>
+    <meta name="date" content="2022-05-30" />
+    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view-0.2.6/tile-view.js"></script>
@@ -33,7 +33,7 @@ class: center middle main-title section-title-4
 
 .light[PMAP 8921: Data Visualization with R&lt;br&gt;
 Andrew Young School of Policy Studies&lt;br&gt;
-Summer 2021]
+Summer 2022]
 
 ]
 
@@ -211,15 +211,15 @@ would say if the Potters a...
 .small-code[
 
 ```
-# A tibble: 6 x 3
-  chapter book                       text                                                 
-    &lt;int&gt; &lt;chr&gt;                      &lt;chr&gt;                                                
-1       1 Harry Potter and the Phil… "THE BOY WHO LIVED　　Mr. and Mrs. Dursley, of numbe…
-2       2 Harry Potter and the Phil… "THE VANISHING GLASS　　Nearly ten years had passed …
-3       3 Harry Potter and the Phil… "THE LETTERS FROM NO ONE　　The escape of the Brazil…
-4       4 Harry Potter and the Phil… "THE KEEPER OF THE KEYS　　BOOM. They knocked again.…
-5       5 Harry Potter and the Phil… "DIAGON ALLEY　　Harry woke early the next morning. …
-6       6 Harry Potter and the Phil… "THE JOURNEY FROM PLATFORM NINE AND THREE-QUARTERS　…
+# A tibble: 6 × 3
+  chapter book                                     text                                   
+    &lt;int&gt; &lt;chr&gt;                                    &lt;chr&gt;                                  
+1       1 Harry Potter and the Philosopher's Stone "THE BOY WHO LIVED　　Mr. and Mrs. Dur…
+2       2 Harry Potter and the Philosopher's Stone "THE VANISHING GLASS　　Nearly ten yea…
+3       3 Harry Potter and the Philosopher's Stone "THE LETTERS FROM NO ONE　　The escape…
+4       4 Harry Potter and the Philosopher's Stone "THE KEEPER OF THE KEYS　　BOOM. They …
+5       5 Harry Potter and the Philosopher's Stone "DIAGON ALLEY　　Harry woke early the …
+6       6 Harry Potter and the Philosopher's Stone "THE JOURNEY FROM PLATFORM NINE AND TH…
 ```
 ]
 
@@ -234,7 +234,7 @@ would say if the Potters a...
 .pull-left.small-code[
 
 ```
-# A tibble: 6 x 3
+# A tibble: 6 × 3
   word  chapter book           
   &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;          
 1 the         1 Harry Potter...
@@ -251,7 +251,7 @@ would say if the Potters a...
 .pull-right.small-code[
 
 ```
-# A tibble: 6 x 3
+# A tibble: 6 × 3
   bigram    chapter book           
   &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;          
 1 the boy         1 Harry Potter...
@@ -272,7 +272,7 @@ would say if the Potters a...
 .center.small-code[
 
 ```
-# A tibble: 1,149 x 2
+# A tibble: 1,149 × 2
    word        lexicon
    &lt;chr&gt;       &lt;chr&gt;  
  1 a           SMART  
@@ -318,19 +318,19 @@ would say if the Potters a...
 .small-code[
 
 ```
-# A tibble: 50 x 11
-   doc_id   sid   tid token  token_with_ws lemma upos  xpos  feats     tid_source relation
-    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;         &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
- 1      1     1     1 THE    THE           the   DET   DT    Definite…          2 det     
- 2      1     1     2 BOY    BOY           Boy   NOUN  NN    Number=S…         18 nsubj   
- 3      1     1     3 WHO    WHO           who   PRON  WP    PronType…          4 nsubj   
- 4      1     1     4 LIVED  LIVED　　     live  VERB  VBD   Mood=Ind…          2 acl:rel…
- 5      1     1     5 Mr.    Mr.           Mr.   PROPN NNP   Number=S…          4 xcomp   
- 6      1     1     6 and    and           and   CCONJ CC    &lt;NA&gt;               7 cc      
- 7      1     1     7 Mrs.   Mrs.          Mrs.  PROPN NNP   Number=S…          5 conj    
- 8      1     1     8 Dursl… Dursley       Durs… PROPN NNP   Number=S…          7 flat    
- 9      1     1     9 ,      ,             ,     PUNCT ,     &lt;NA&gt;               5 punct   
-10      1     1    10 of     of            of    ADP   IN    &lt;NA&gt;              11 case    
+# A tibble: 50 × 11
+   doc_id   sid   tid token   token_with_ws lemma   upos  xpos  feats  tid_source relation
+    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;   
+ 1      1     1     1 THE     THE           the     DET   DT    Defin…          2 det     
+ 2      1     1     2 BOY     BOY           Boy     NOUN  NN    Numbe…         18 nsubj   
+ 3      1     1     3 WHO     WHO           who     PRON  WP    PronT…          4 nsubj   
+ 4      1     1     4 LIVED   LIVED　　     live    VERB  VBD   Mood=…          2 acl:rel…
+ 5      1     1     5 Mr.     Mr.           Mr.     PROPN NNP   Numbe…          4 xcomp   
+ 6      1     1     6 and     and           and     CCONJ CC    &lt;NA&gt;            7 cc      
+ 7      1     1     7 Mrs.    Mrs.          Mrs.    PROPN NNP   Numbe…          5 conj    
+ 8      1     1     8 Dursley Dursley       Dursley PROPN NNP   Numbe…          7 flat    
+ 9      1     1     9 ,       ,             ,       PUNCT ,     &lt;NA&gt;            5 punct   
+10      1     1    10 of      of            of      ADP   IN    &lt;NA&gt;           11 case    
 # … with 40 more rows
 ```
 ]
@@ -346,7 +346,7 @@ would say if the Potters a...
 
 
 ```
-# A tibble: 1,557 x 2
+# A tibble: 1,557 × 2
    lemma     n
    &lt;chr&gt; &lt;dbl&gt;
  1 say     920
@@ -370,7 +370,7 @@ would say if the Potters a...
 
 
 ```
-# A tibble: 2,852 x 2
+# A tibble: 2,852 × 2
    lemma          n
    &lt;chr&gt;      &lt;dbl&gt;
  1 Harry       1315
@@ -394,7 +394,7 @@ would say if the Potters a...
 
 
 ```
-# A tibble: 1,240 x 2
+# A tibble: 1,240 × 2
    lemma     n
    &lt;chr&gt; &lt;dbl&gt;
  1 back    223
@@ -436,7 +436,7 @@ get_sentiments("bing")
 ```
 
 ```
-# A tibble: 6,786 x 2
+# A tibble: 6,786 × 2
    word        sentiment
    &lt;chr&gt;       &lt;chr&gt;    
  1 2-faces     negative 
@@ -462,7 +462,7 @@ get_sentiments("afinn")
 ```
 
 ```
-# A tibble: 2,477 x 2
+# A tibble: 2,477 × 2
    word       value
    &lt;chr&gt;      &lt;dbl&gt;
  1 abandon       -2
@@ -488,7 +488,7 @@ get_sentiments("nrc")
 ```
 
 ```
-# A tibble: 13,901 x 2
+# A tibble: 13,872 × 2
    word        sentiment
    &lt;chr&gt;       &lt;chr&gt;    
  1 abacus      trust    
@@ -501,7 +501,7 @@ get_sentiments("nrc")
  8 abandoned   sadness  
  9 abandonment anger    
 10 abandonment fear     
-# … with 13,891 more rows
+# … with 13,862 more rows
 ```
 ]
 
@@ -737,6 +737,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable

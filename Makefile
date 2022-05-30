@@ -1,5 +1,5 @@
 OUTPUTDIR=public
-SSH_TARGET=cloud:/home/andrew/sites/datavizs21.classes/public_html
+SSH_TARGET=cloud:/home/andrew/sites/datavizs22.classes/public_html
 
 .PHONY : all clean serve build deploy zip_projects pdf_slides
 

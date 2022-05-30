@@ -1,9 +1,9 @@
 ---
 title: "Interactivity"
 linktitle: "10: Interactivity"
-date: "2021-07-05"
-start_date: "2021-07-05"
-end_date: "2021-07-08"
+date: "2022-07-05"
+start_date: "2022-07-05"
+end_date: "2022-07-08"
 menu:
   content:
     parent: Course content

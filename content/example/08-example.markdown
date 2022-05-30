@@ -1,9 +1,9 @@
 ---
 title: "Comparisons"
 linktitle: "8: Comparisons"
-date: "2021-06-28"
-start_date: "2021-06-28"
-end_date: "2021-07-02"
+date: "2022-06-27"
+start_date: "2022-06-27"
+end_date: "2022-07-01"
 toc: yes
 menu:
   example:
@@ -110,7 +110,7 @@ head(wdi_clean)
 ```
 
 ```
-## # A tibble: 6 x 9
+## # A tibble: 6 × 9
 ##   iso2c country  year life_expectancy access_to_electricity co2_emissions gdp_per_cap region                income     
 ##   <chr> <chr>   <dbl>           <dbl>                 <dbl>         <dbl>       <dbl> <chr>                 <chr>      
 ## 1 AD    Andorra  2015              NA                   100         NA         41768. Europe & Central Asia High income
@@ -155,7 +155,7 @@ ggplot(data = life_expectancy_small,
 
 <img src="/example/08-example_files/figure-html/life-expectancy-small-minimalist-1.png" width="576" style="display: block; margin: auto;" />
 
-We can do a whole part of a continent (poor Iraq and Syria 😞)
+We can do a whole part of a continent (poor Iraq and Syria 😭)
 
 
 ```r

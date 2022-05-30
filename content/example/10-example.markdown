@@ -1,9 +1,9 @@
 ---
 title: "Interactivity"
 linktitle: "10: Interactivity"
-date: "2021-07-05"
-start_date: "2021-07-05"
-end_date: "2021-07-08"
+date: "2022-07-05"
+start_date: "2022-07-05"
+end_date: "2022-07-08"
 toc: yes
 menu:
   example:
@@ -184,7 +184,7 @@ Let’s check to see if it worked:
 wdi_2019 %>% select(country, prop_women_parl, fancy_label) %>% head()
 ```
 
-    ## # A tibble: 6 x 3
+    ## # A tibble: 6 × 3
     ##   country              prop_women_parl fancy_label                                      
     ##   <chr>                          <dbl> <chr>                                            
     ## 1 Andorra                        0.5   Andorra<br>50.0% women in parliament             
@@ -236,9 +236,9 @@ htmlwidgets::saveWidget(interactive_plot, "fancy_plot.html")
 
 The [documentation for **flexdashboard** is so great and complete](https://rmarkdown.rstudio.com/flexdashboard/) that I’m not going to include a full example here. There is also a brief overview in [chapter 5 of the official R Markdown book](https://bookdown.org/yihui/rmarkdown/dashboards.html). You can also watch [this really quick video here](https://www.youtube.com/watch?v=_oDfBVr9wmQ). She uses a package called **dimple** instead of **plotly**, which doesn’t work with ggplot like `ggplotly()`, so *ignore her code* about `dimple()` and use your `ggplotly()` skills instead. You can search YouTube for a bunch of other short tutorial videos, too.
 
-The quickest and easiest way to get started is to install the **flexdashboard** package and then in RStudio go to File &gt; New File… &gt; R Markdown… &gt; From Template &gt; Flexdashboard:
+The quickest and easiest way to get started is to install the **flexdashboard** package and then in RStudio go to File \> New File… \> R Markdown… \> From Template \> Flexdashboard:
 
-<img src="/img/examples/flexdashboard-template.png" width="60%" style="display: block; margin: auto;" />
+<img src="../../../../../../../img/examples/flexdashboard-template.png" width="60%" style="display: block; margin: auto;" />
 
 That will give you an empty dashboard with three chart areas spread across two columns. Put static or dynamic graphs in the different chart areas, knit, and you’ll be good to go!
 

@@ -1,9 +1,9 @@
 ---
 title: "Relationships"
 linktitle: "7: Relationships"
-date: "2021-06-28"
-start_date: "2021-06-28"
-end_date: "2021-07-02"
+date: "2022-06-27"
+start_date: "2022-06-27"
+end_date: "2022-07-01"
 toc: yes
 menu:
   example:
@@ -274,7 +274,7 @@ things_to_correlate_long
 ```
 
 ```
-## # A tibble: 10 x 4
+## # A tibble: 10 × 4
 ##    measure2        measure1              cor nice_cor
 ##    <fct>           <fct>               <dbl>    <dbl>
 ##  1 temperatureHigh temperatureLow     0.920      0.92
@@ -354,7 +354,7 @@ tidy(model_simple, conf.int = TRUE)
 ```
 
 ```
-## # A tibble: 2 x 7
+## # A tibble: 2 × 7
 ##   term            estimate std.error statistic  p.value conf.low conf.high
 ##   <chr>              <dbl>     <dbl>     <dbl>    <dbl>    <dbl>     <dbl>
 ## 1 (Intercept)      104.       2.35       44.3  1.88e-88   99.5     109.   
@@ -399,7 +399,7 @@ tidy(model_complex, conf.int = TRUE)
 ```
 
 ```
-## # A tibble: 7 x 7
+## # A tibble: 7 × 7
 ##   term                     estimate std.error statistic   p.value conf.low conf.high
 ##   <chr>                       <dbl>     <dbl>     <dbl>     <dbl>    <dbl>     <dbl>
 ## 1 (Intercept)              262.      125.         2.09  0.0380    14.8      510.    
@@ -465,7 +465,7 @@ newdata_example
 ```
 
 ```
-## # A tibble: 1 x 6
+## # A tibble: 1 × 6
 ##   humidity_scaled moonPhase_scaled precipProbability_scaled windSpeed pressure cloudCover_scaled
 ##             <dbl>            <dbl>                    <dbl>     <dbl>    <dbl>             <dbl>
 ## 1              50               50                       50         1     1000                50
@@ -483,7 +483,7 @@ augment(model_complex, newdata = newdata_example, se_fit = TRUE) %>%
 ```
 
 ```
-## # A tibble: 1 x 2
+## # A tibble: 1 × 2
 ##   .fitted .se.fit
 ##     <dbl>   <dbl>
 ## 1    96.2    3.19
@@ -505,7 +505,7 @@ newdata
 ```
 
 ```
-## # A tibble: 17 x 6
+## # A tibble: 17 × 6
 ##    windSpeed pressure precipProbability_scaled moonPhase_scaled humidity_scaled cloudCover_scaled
 ##        <dbl>    <dbl>                    <dbl>            <dbl>           <dbl>             <dbl>
 ##  1       0      1016.                     40.2             50.7            64.8              29.5
@@ -543,7 +543,7 @@ predicted_values %>%
 ```
 
 ```
-## # A tibble: 6 x 5
+## # A tibble: 6 × 5
 ##   windSpeed .fitted .se.fit conf.low conf.high
 ##       <dbl>   <dbl>   <dbl>    <dbl>     <dbl>
 ## 1       0      95.3   1.63      92.2      98.5
@@ -584,7 +584,7 @@ newdata_fancy
 ```
 
 ```
-## # A tibble: 68 x 6
+## # A tibble: 68 × 6
 ##    windSpeed pressure precipProbability_scaled moonPhase_scaled humidity_scaled cloudCover_scaled
 ##        <dbl>    <dbl>                    <dbl>            <dbl>           <dbl>             <dbl>
 ##  1       0      1016.                     40.2             50.7            64.8                 0

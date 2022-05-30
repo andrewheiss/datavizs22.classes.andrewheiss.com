@@ -4,8 +4,8 @@
     <title>Relationships</title>
     <meta charset="utf-8" />
     <meta name="author" content="Andrew Heiss" />
-    <meta name="date" content="2021-06-22" />
-    <script src="libs/header-attrs-2.9/header-attrs.js"></script>
+    <meta name="date" content="2022-05-30" />
+    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view-0.2.6/tile-view.js"></script>
@@ -33,7 +33,7 @@ class: center middle main-title section-title-4
 
 .light[PMAP 8921: Data Visualization with R&lt;br&gt;
 Andrew Young School of Policy Studies&lt;br&gt;
-Summer 2021]
+Summer 2022]
 
 ]
 
@@ -530,7 +530,7 @@ tidy(car_model, conf.int = TRUE)
 ```
 
 ```
-## # A tibble: 2 x 7
+## # A tibble: 2 × 7
 ##   term        estimate std.error statistic   p.value conf.low conf.high
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
 ## 1 (Intercept)    35.7      0.720      49.6 2.12e-125    34.3      37.1 
@@ -547,7 +547,7 @@ glance(car_model)
 ```
 
 ```
-## # A tibble: 1 x 12
+## # A tibble: 1 × 12
 ##   r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC
 ##       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1     0.587         0.585  3.84      329. 2.04e-46     1  -646. 1297. 1308.
@@ -564,7 +564,7 @@ glance(car_model)
 .small-code[
 
 ```
-## # A tibble: 2 x 2
+## # A tibble: 2 × 2
 ##   term        estimate
 ##   &lt;chr&gt;          &lt;dbl&gt;
 ## 1 (Intercept)    35.7 
@@ -640,7 +640,7 @@ tidy(car_model_big, conf.int = TRUE)
 ```
 
 ```
-## # A tibble: 5 x 7
+## # A tibble: 5 × 7
 ##   term        estimate std.error statistic  p.value conf.low conf.high
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
 ## 1 (Intercept)    33.1      1.03      32.1  9.49e-87    31.1     35.1  
@@ -759,7 +759,7 @@ car_coefs
 ```
 
 ```
-## # A tibble: 4 x 7
+## # A tibble: 4 × 7
 ##   term  estimate std.error statistic  p.value conf.low conf.high
 ##   &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
 ## 1 displ    -1.12     0.461     -2.44 1.56e- 2    -2.03    -0.215
@@ -836,7 +836,7 @@ head(cars_new_data)
 ```
 
 ```
-## # A tibble: 6 x 3
+## # A tibble: 6 × 3
 ##   displ   cyl drv  
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
 ## 1   2    5.89 f    
@@ -864,7 +864,7 @@ head(predicted_mpg)
 ```
 
 ```
-## # A tibble: 6 x 5
+## # A tibble: 6 × 5
 ##   displ   cyl drv   .fitted .se.fit
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;
 ## 1   2    5.89 f        27.3   0.644
@@ -936,7 +936,7 @@ head(cars_new_data_fancy)
 ```
 
 ```
-## # A tibble: 6 x 3
+## # A tibble: 6 × 3
 ##   displ   cyl drv  
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
 ## 1   2    5.89 f    
@@ -964,7 +964,7 @@ head(predicted_mpg_fancy)
 ```
 
 ```
-## # A tibble: 6 x 5
+## # A tibble: 6 × 5
 ##   displ   cyl drv   .fitted .se.fit
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;
 ## 1   2    5.89 f        27.3   0.644
@@ -1122,6 +1122,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable

@@ -1,9 +1,9 @@
 ---
 title: "Mapping data to graphics"
 linktitle: "3: Mapping data to graphics"
-date: "2021-06-14"
-start_date: "2021-06-14"
-end_date: "2021-06-18"
+date: "2022-06-13"
+start_date: "2022-06-13"
+end_date: "2022-06-17"
 menu:
   content:
     parent: Course content

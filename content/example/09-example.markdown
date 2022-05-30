@@ -1,9 +1,9 @@
 ---
 title: "Annotations"
 linktitle: "9: Annotations"
-date: "2021-07-05"
-start_date: "2021-07-05"
-end_date: "2021-07-08"
+date: "2022-07-05"
+start_date: "2022-07-05"
+end_date: "2022-07-08"
 toc: yes
 menu:
   example:
@@ -137,7 +137,7 @@ head(wdi_clean)
 ```
 
 ```
-## # A tibble: 6 x 9
+## # A tibble: 6 × 9
 ##   iso2c iso3c country  year population co2_emissions gdp_per_cap region                income     
 ##   <chr> <chr> <chr>   <dbl>      <dbl>         <dbl>       <dbl> <chr>                 <chr>      
 ## 1 AD    AND   Andorra  2015      78011         NA         41768. Europe & Central Asia High income
@@ -156,7 +156,7 @@ head(co2_rankings)
 ```
 
 ```
-## # A tibble: 6 x 9
+## # A tibble: 6 × 9
 ##   iso3c country              region                     income              rank_1995 rank_2014 rank_diff big_change better_big_change    
 ##   <chr> <chr>                <chr>                      <chr>                   <dbl>     <dbl>     <dbl> <lgl>      <chr>                
 ## 1 ARE   United Arab Emirates Middle East & North Africa High income               167       171         4 FALSE      Rank changed a little

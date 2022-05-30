@@ -1,9 +1,9 @@
 ---
 title: "Amounts and proportions"
 linktitle: "4: Amounts and proportions"
-date: "2021-06-14"
-start_date: "2021-06-14"
-end_date: "2021-06-18"
+date: "2022-06-13"
+start_date: "2022-06-13"
+end_date: "2022-06-17"
 toc: yes
 menu:
   example:
@@ -72,7 +72,7 @@ head(births_combined)
 ```
 
 ```
-## # A tibble: 6 x 5
+## # A tibble: 6 × 5
 ##    year month date_of_month day_of_week births
 ##   <dbl> <dbl>         <dbl>       <dbl>  <dbl>
 ## 1  1994     1             1           6   8096
@@ -108,7 +108,7 @@ head(births)
 ```
 
 ```
-## # A tibble: 6 x 7
+## # A tibble: 6 × 7
 ##    year month   date_of_month day_of_week births date_of_month_categori… weekend
 ##   <dbl> <ord>           <dbl> <ord>        <dbl> <fct>                   <lgl>  
 ## 1  1994 January             1 Saturday      8096 1                       TRUE   
@@ -282,7 +282,7 @@ avg_births_month_day %>%
 ```
 
 ```
-## # A tibble: 366 x 3
+## # A tibble: 366 × 3
 ## # Groups:   month [12]
 ##    month    date_of_month_categorical avg_births
 ##    <ord>    <fct>                          <dbl>
@@ -308,7 +308,7 @@ avg_births_month_day %>%
 ```
 
 ```
-## # A tibble: 366 x 3
+## # A tibble: 366 × 3
 ## # Groups:   month [12]
 ##    month     date_of_month_categorical avg_births
 ##    <ord>     <fct>                          <dbl>

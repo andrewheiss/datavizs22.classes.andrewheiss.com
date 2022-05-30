@@ -1,8 +1,8 @@
 ---
 title: "Graphic design"
 linktitle: "2: Graphic design"
-date: "2021-06-14"
-due_date: "2021-06-14"
+date: "2022-06-13"
+due_date: "2022-06-13"
 due_time: "11:59 PM"
 toc: true
 menu:
@@ -24,7 +24,7 @@ Critique the design of the poster for the BYU Student Wellness Center workshop b
 
 (*This would have been some random poster from GSU, but I haven't been on campus since mid-March 2020* 😭)
 
-<img src="/img/assignments/student-wellness.jpg" width="60%" />
+<img src="../../../../../../../img/assignments/student-wellness.jpg" width="60%" />
 
 
 ## Task 3: CRAP redesign

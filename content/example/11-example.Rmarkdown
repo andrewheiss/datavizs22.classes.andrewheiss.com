@@ -1,9 +1,9 @@
 ---
 title: "Time"
 linktitle: "11: Time"
-date: "2021-07-12"
-start_date: "2021-07-12"
-end_date: "2021-07-16"
+date: "2022-07-11"
+start_date: "2022-07-11"
+end_date: "2022-07-15"
 toc: yes
 menu:
   example:
@@ -253,7 +253,7 @@ recessions_start_end <- fred_raw %>%
 recessions_start_end
 ```
 
-Finally, we can use `tibble()` to create a brand new little dataset that includes columns for the start and end dates. Since we're currently in a recession, we have a little bit of a problem—there's no end date to the current recession, so we can't plot it. We need to create our own fake end date for the sake of putting it on a graph. We'll add a row to `recessions_start_end` using `bind_rows()` and give it today's date with `today()` (`today()` by itself returns regular text like `"2021-06-01"`; we need to tell R that this is a date by feeding it to `ymd()`). 
+Finally, we can use `tibble()` to create a brand new little dataset that includes columns for the start and end dates. Since we're currently in a recession, we have a little bit of a problem—there's no end date to the current recession, so we can't plot it. We need to create our own fake end date for the sake of putting it on a graph. We'll add a row to `recessions_start_end` using `bind_rows()` and give it today's date with `today()` (`today()` by itself returns regular text like `"2022-06-01"`; we need to tell R that this is a date by feeding it to `ymd()`). 
 
 We can then extract the pairs of recession start and end dates in a miniature dataset of recessions.
 

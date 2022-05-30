@@ -1,7 +1,7 @@
 ---
 title: "Final project"
-date: "2021-07-31"
-due_date: "2021-07-31"
+date: "2022-07-30"
+due_date: "2022-07-30"
 due_time: "11:59 PM"
 menu:
   assignment:

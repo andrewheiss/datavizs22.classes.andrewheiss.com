@@ -21,7 +21,7 @@ main:
     url: /resource/
     weight: 7
   - name: '<i class="fab fa-slack"></i>'
-    url: "https://gsudatavizs21.slack.com"
+    url: "https://gsudatavizs22.slack.com"
     weight: 8
   - name: '<i class="fab fa-r-project"></i>'
     url: "https://rstudio.cloud/"

@@ -1,9 +1,9 @@
 ---
 title: "Mapping data to graphics"
 linktitle: "3: Mapping data to graphics"
-date: "2021-06-14"
-start_date: "2021-06-14"
-end_date: "2021-06-18"
+date: "2022-06-13"
+start_date: "2022-06-13"
+end_date: "2022-06-17"
 toc: yes
 menu:
   example:
@@ -247,7 +247,7 @@ bbc_by_year
 ```
 
 ```
-## # A tibble: 4 x 4
+## # A tibble: 4 × 4
 ##   grant_year    total    avg number
 ##        <dbl>    <dbl>  <dbl>  <int>
 ## 1       2016 17290488 78238.    221
@@ -297,7 +297,7 @@ bbc_year_size
 ```
 
 ```
-## # A tibble: 8 x 5
+## # A tibble: 8 × 5
 ## # Groups:   grant_year [4]
 ##   grant_year grant_program    total    avg number
 ##        <dbl> <chr>            <dbl>  <dbl>  <int>
@@ -371,7 +371,7 @@ bbc_year_size_duration
 ```
 
 ```
-## # A tibble: 21 x 6
+## # A tibble: 21 × 6
 ## # Groups:   grant_year, grant_program [8]
 ##    grant_year grant_program grant_duration_text    total    avg number
 ##         <dbl> <chr>         <chr>                  <dbl>  <dbl>  <int>

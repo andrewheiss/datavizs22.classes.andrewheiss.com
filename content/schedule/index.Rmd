@@ -22,8 +22,8 @@ schedule_df <- enframe(schedule_raw) %>%
   filter(is.na(header)) %>% 
   select(-value, -bg, -bottomborder, -header)
 
-class_year <- "2021"
-base_url <- "https://datavizs21.classes.andrewheiss.com/"
+class_year <- "2022"
+base_url <- "https://datavizs22.classes.andrewheiss.com/"
 content_base <- glue("{base_url}content/")
 assignment_base <- glue("{base_url}assignment/")
 schedule_ics_path <- "schedule/schedule.ics"

@@ -1,9 +1,9 @@
 ---
 title: "Graphic design"
 linktitle: "2: Graphic design"
-date: "2021-06-07"
-start_date: "2021-06-07"
-end_date: "2021-06-11"
+date: "2022-06-06"
+start_date: "2022-06-06"
+end_date: "2022-06-10"
 toc: yes
 menu:
   example:
@@ -16,7 +16,7 @@ editor_options:
 
 For this example, I'm going to critique and improve this random flyer I found posted in the BYU library in September 2018:
 
-<img src="/projects/02-example/original-from-hbll.jpg" width="50%" />
+<img src="../../../../../../../projects/02-example/original-from-hbll.jpg" width="50%" />
 
 It's not the best designed poster, but it's incredibly typical of what you see in the real world. By applying the principles of CRAP, we can improve the poster significantly.
 
@@ -44,4 +44,4 @@ If you download and unzip this file, you can follow along too (but you don't hav
 
 ## Final versions
 
-<img src="/img/examples/combined-output@2x.png" width="100%" />
+<img src="../../../../../../../img/examples/combined-output@2x.png" width="100%" />

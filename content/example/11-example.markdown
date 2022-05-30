@@ -1,9 +1,9 @@
 ---
 title: "Time"
 linktitle: "11: Time"
-date: "2021-07-12"
-start_date: "2021-07-12"
-end_date: "2021-07-16"
+date: "2022-07-11"
+start_date: "2022-07-11"
+end_date: "2022-07-15"
 toc: yes
 menu:
   example:
@@ -123,7 +123,7 @@ head(fred_raw)
 ```
 
 ```
-## # A tibble: 6 x 3
+## # A tibble: 6 × 3
 ##   symbol date        price
 ##   <chr>  <date>      <dbl>
 ## 1 RSXFSN 1992-01-01 130683
@@ -147,7 +147,7 @@ retail_sales
 ```
 
 ```
-## # A tibble: 351 x 3
+## # A tibble: 351 × 3
 ##    symbol date        price
 ##    <chr>  <date>      <dbl>
 ##  1 RSXFSN 1992-01-01 130683
@@ -176,7 +176,7 @@ fred_monthly_things
 ```
 
 ```
-## # A tibble: 375 x 4
+## # A tibble: 375 × 4
 ##    date       RSXFSN FPCPITOTLZGUSA UNRATE
 ##    <date>      <dbl>          <dbl>  <dbl>
 ##  1 1992-01-01 130683           3.03    7.3
@@ -206,7 +206,7 @@ fred_monthly_things
 ```
 
 ```
-## # A tibble: 375 x 3
+## # A tibble: 375 × 3
 ##    date       retail_sales unemployment
 ##    <date>            <dbl>        <dbl>
 ##  1 1992-01-01       130683          7.3
@@ -306,7 +306,7 @@ fred_raw %>%
 ```
 
 ```
-## # A tibble: 375 x 3
+## # A tibble: 375 × 3
 ##    symbol date       price
 ##    <chr>  <date>     <dbl>
 ##  1 USREC  1990-01-01     0
@@ -335,7 +335,7 @@ recessions_tidy
 ```
 
 ```
-## # A tibble: 375 x 4
+## # A tibble: 375 × 4
 ##    symbol date       price recession_change
 ##    <chr>  <date>     <dbl>            <dbl>
 ##  1 USREC  1990-01-01     0               NA
@@ -365,7 +365,7 @@ recessions_start_end
 ```
 
 ```
-## # A tibble: 7 x 4
+## # A tibble: 7 × 4
 ##   symbol date       price recession_change
 ##   <chr>  <date>     <dbl>            <dbl>
 ## 1 USREC  1990-08-01     1                1
@@ -377,7 +377,7 @@ recessions_start_end
 ## 7 USREC  2020-03-01     1                1
 ```
 
-Finally, we can use `tibble()` to create a brand new little dataset that includes columns for the start and end dates. Since we're currently in a recession, we have a little bit of a problem—there's no end date to the current recession, so we can't plot it. We need to create our own fake end date for the sake of putting it on a graph. We'll add a row to `recessions_start_end` using `bind_rows()` and give it today's date with `today()` (`today()` by itself returns regular text like `"2021-06-01"`; we need to tell R that this is a date by feeding it to `ymd()`). 
+Finally, we can use `tibble()` to create a brand new little dataset that includes columns for the start and end dates. Since we're currently in a recession, we have a little bit of a problem—there's no end date to the current recession, so we can't plot it. We need to create our own fake end date for the sake of putting it on a graph. We'll add a row to `recessions_start_end` using `bind_rows()` and give it today's date with `today()` (`today()` by itself returns regular text like `"2022-06-01"`; we need to tell R that this is a date by feeding it to `ymd()`). 
 
 We can then extract the pairs of recession start and end dates in a miniature dataset of recessions.
 
@@ -395,13 +395,13 @@ recessions
 ```
 
 ```
-## # A tibble: 4 x 2
+## # A tibble: 4 × 2
 ##   start      end       
 ##   <date>     <date>    
 ## 1 1990-08-01 1991-04-01
 ## 2 2001-04-01 2001-12-01
 ## 3 2008-01-01 2009-07-01
-## 4 2020-03-01 2021-05-07
+## 4 2020-03-01 2022-05-30
 ```
 
 We can now add this tiny dataset to our plot using `geom_rect()`. Notice how we put `geom_rect()` *before* `geom_line()`—that's so the recession rectangles go under the line instead of on top of it. Also notice that we have to specify 4 new aesthetics for `geom_rect()`: min and max values for both x and y. We use the recession start and end dates for `xmin` and `xmax`, and then use −∞ and ∞ for `ymin` and `ymax` to make the rectangles stretch from the bottom of the plot to the top.
@@ -546,16 +546,16 @@ retail_components
 ## # :        price = trend + season_year + remainder
 ##    .model year_month  price   trend season_year remainder season_adjust
 ##    <chr>       <mth>  <dbl>   <dbl>       <dbl>     <dbl>         <dbl>
-##  1 stl      1992 Jan 130683 148453.    -22505.      4735.       153188.
-##  2 stl      1992 Feb 131244 148960.    -23009.      5292.       154253.
-##  3 stl      1992 Mar 142488 149468.     -1326.     -5654.       143814.
-##  4 stl      1992 Apr 147175 149976.     -2978.       177.       150153.
-##  5 stl      1992 May 152420 150513.      5927.     -4020.       146493.
-##  6 stl      1992 Jun 151849 151051.      3205.     -2407.       148644.
-##  7 stl      1992 Jul 152586 151589.       294.       703.       152292.
-##  8 stl      1992 Aug 152476 152155.      4343.     -4022.       148133.
-##  9 stl      1992 Sep 148158 152722.     -6162.      1598.       154320.
-## 10 stl      1992 Oct 155987 153289.       -33.3     2732.       156020.
+##  1 stl      1992 Jan 130683 148390.     -21901.    4195.        152584.
+##  2 stl      1992 Feb 131244 148904.     -22686.    5026.        153930.
+##  3 stl      1992 Mar 142488 149418.      -1804.   -5126.        144292.
+##  4 stl      1992 Apr 147175 149932.      -2815.      57.9       149990.
+##  5 stl      1992 May 152420 150478.       5337.   -3394.        147083.
+##  6 stl      1992 Jun 151849 151023.       3011.   -2185.        148838.
+##  7 stl      1992 Jul 152586 151569.        350.     667.        152236.
+##  8 stl      1992 Aug 152476 152145.       3967.   -3635.        148509.
+##  9 stl      1992 Sep 148158 152720.      -5497.     935.        153655.
+## 10 stl      1992 Oct 155987 153296.        116.    2575.        155871.
 ## # … with 341 more rows
 ```
 
@@ -644,15 +644,15 @@ retail_components_tidy
 ##    .model year_month component     value
 ##    <chr>       <mth> <fct>         <dbl>
 ##  1 stl      1992 Jan Actual data 130683 
-##  2 stl      1992 Jan Trend       148453.
-##  3 stl      1992 Jan Seasonality -22505.
-##  4 stl      1992 Jan Remainder     4735.
+##  2 stl      1992 Jan Trend       148390.
+##  3 stl      1992 Jan Seasonality -21901.
+##  4 stl      1992 Jan Remainder     4195.
 ##  5 stl      1992 Feb Actual data 131244 
-##  6 stl      1992 Feb Trend       148960.
-##  7 stl      1992 Feb Seasonality -23009.
-##  8 stl      1992 Feb Remainder     5292.
+##  6 stl      1992 Feb Trend       148904.
+##  7 stl      1992 Feb Seasonality -22686.
+##  8 stl      1992 Feb Remainder     5026.
 ##  9 stl      1992 Mar Actual data 142488 
-## 10 stl      1992 Mar Trend       149468.
+## 10 stl      1992 Mar Trend       149418.
 ## # … with 1,394 more rows
 ```
 

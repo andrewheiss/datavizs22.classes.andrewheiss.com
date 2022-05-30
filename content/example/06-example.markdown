@@ -1,9 +1,9 @@
 ---
 title: "Uncertainty"
 linktitle: "6: Uncertainty"
-date: "2021-06-21"
-start_date: "2021-06-21"
-end_date: "2021-06-25"
+date: "2022-06-20"
+start_date: "2022-06-20"
+end_date: "2022-06-24"
 toc: yes
 menu:
   example:
@@ -225,7 +225,7 @@ head(weather_atl_long)
 ```
 
 ```
-## # A tibble: 6 x 4
+## # A tibble: 6 × 4
 ##   time                temp_type  temp Month  
 ##   <dttm>              <chr>     <dbl> <ord>  
 ## 1 2019-01-01 05:00:00 Low        50.6 January

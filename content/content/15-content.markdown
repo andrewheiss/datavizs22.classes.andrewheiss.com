@@ -1,9 +1,9 @@
 ---
 title: "Truth, beauty, and data revisited"
 linktitle: "15: Truth, beauty, and data revisited"
-date: "2021-07-26"
-start_date: "2021-07-26"
-end_date: "2021-07-31"
+date: "2022-07-25"
+start_date: "2022-07-25"
+end_date: "2022-07-30"
 menu:
   content:
     parent: Course content

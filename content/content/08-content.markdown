@@ -1,9 +1,9 @@
 ---
 title: "Comparisons"
 linktitle: "8: Comparisons"
-date: "2021-06-28"
-start_date: "2021-06-28"
-end_date: "2021-07-02"
+date: "2022-06-27"
+start_date: "2022-06-27"
+end_date: "2022-07-01"
 menu:
   content:
     parent: Course content

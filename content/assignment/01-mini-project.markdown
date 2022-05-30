@@ -1,7 +1,7 @@
 ---
 title: "Mini project 1"
-date: "2021-07-05"
-due_date: "2021-07-05"
+date: "2022-07-04"
+due_date: "2022-07-04"
 due_time: "11:59 PM"
 menu:
   assignment:
@@ -21,7 +21,7 @@ NYC keeps incredibly detailed data regarding animal sightings, including rats, a
 
 For this first mini project, you will use **R and ggplot2** to tell an interesting story hidden in the data. You can recreate one of these ugly, less-than-helpful graphs, or create a new story by looking at other variables in the data:
 
-<img src="/img/assignments/rat_examples.png" width="100%" />
+<img src="../../../../../../../img/assignments/rat_examples.png" width="100%" />
 
 ## Instructions
 
@@ -33,9 +33,9 @@ Here’s what you need to do:
 
     -   <a href="https://raw.githubusercontent.com/andrewheiss/datavizf18.classes.andrewheiss.com/master/static/data/Rat_Sightings.csv" target="_blank" download><i class="fas fa-file-csv"></i> `Rat_Sightings.csv`</a>
 
-    -   Place this in the `data` subfolder you created in step 1. You might need to right click on this link and choose “Save link as…,” since your browser may try to display it as text. The data was originally [uploaded by the City of New York to Kaggle](https://www.kaggle.com/new-york-city/nyc-rat-sightings/data), and is provided with a public domain license.
+    -   Place this in the `data` subfolder you created in step 1. You might need to right click on this link and choose “Save link as…”, since your browser may try to display it as text. The data was originally [uploaded by the City of New York to Kaggle](https://www.kaggle.com/new-york-city/nyc-rat-sightings/data), and is provided with a public domain license.
 
-3.  **Create** a new R Markdown file and save it in your project. In RStudio go to File &gt; New File &gt; R Markdown…, choose the default options, and delete all the placeholder text in the new file except for the metadata at the top, which is between `---` and `---`.
+3.  **Create** a new R Markdown file and save it in your project. In RStudio go to File \> New File \> R Markdown…, choose the default options, and delete all the placeholder text in the new file except for the metadata at the top, which is between `---` and `---`.
 
 4.  **Verify** that your project folder is structured like this:
 
@@ -85,7 +85,7 @@ I’ve provided some starter code below. A couple comments about it:
 -   By default, `read_csv()` treats cells that are empty or “NA” as missing values. This rat dataset uses “N/A” to mark missing values, so we need to add that as a possible marker of missingness (hence `na = c("", "NA", "N/A")`)
 -   To make life easier, I’ve renamed some of the key variables you might work with. You can rename others if you want.
 -   I’ve also created a few date-related variables (`sighting_year`, `sighting_month`, `sighting_day`, and `sighting_weekday`). You don’t have to use them, but they’re there if you need them. The functions that create these, like `year()` and `wday()` are part of the **lubridate** library.
--   The date/time variables are formatted like `04/03/2017 12:00:00 AM`, which R is not able to automatically parse as a date when reading the CSV file. You can use the `mdy_hms()` function in the **lubridate** library to parse dates that are structured as “month-day-year-hour-minute.” There are also a bunch of other iterations of this function, like `ymd()`, `dmy()`, etc., for other date formats.
+-   The date/time variables are formatted like `04/03/2017 12:00:00 AM`, which R is not able to automatically parse as a date when reading the CSV file. You can use the `mdy_hms()` function in the **lubridate** library to parse dates that are structured as “month-day-year-hour-minute”. There are also a bunch of other iterations of this function, like `ymd()`, `dmy()`, etc., for other date formats.
 -   There’s one row with an unspecified borough, so I filter that out.
 
 ``` r
