@@ -129,6 +129,7 @@ temp_plot
 <img src="/example/07-example_files/figure-html/create-temp-humid-plots-1.png" width="576" style="display: block; margin: auto;" />
 
 ```r
+
 # Humidity in Atlanta
 humidity_plot <- ggplot(weather_atl, aes(x = time, y = humidity)) +
   geom_line() +
@@ -215,9 +216,6 @@ things_to_correlate <- weather_atl %>%
   cor()
 
 things_to_correlate
-```
-
-```
 ##                   temperatureHigh temperatureLow humidity windSpeed precipProbability
 ## temperatureHigh              1.00          0.920   -0.030    -0.377            -0.124
 ## temperatureLow               0.92          1.000    0.112    -0.450            -0.026
@@ -233,9 +231,6 @@ The two halves of this matrix (split along the diagonal line) are identical, so 
 # Get rid of the lower triangle
 things_to_correlate[lower.tri(things_to_correlate)] <- NA
 things_to_correlate
-```
-
-```
 ##                   temperatureHigh temperatureLow humidity windSpeed precipProbability
 ## temperatureHigh                 1           0.92    -0.03    -0.377            -0.124
 ## temperatureLow                 NA           1.00     0.11    -0.450            -0.026
@@ -271,9 +266,6 @@ things_to_correlate_long <- things_to_correlate %>%
          measure2 = fct_inorder(measure2))
 
 things_to_correlate_long
-```
-
-```
 ## # A tibble: 10 × 4
 ##    measure2        measure1              cor nice_cor
 ##    <fct>           <fct>               <dbl>    <dbl>
@@ -351,9 +343,6 @@ model_simple <- lm(temperatureHigh ~ humidity_scaled,
                    data = weather_atl_summer)
 
 tidy(model_simple, conf.int = TRUE)
-```
-
-```
 ## # A tibble: 2 × 7
 ##   term            estimate std.error statistic  p.value conf.low conf.high
 ##   <chr>              <dbl>     <dbl>     <dbl>    <dbl>    <dbl>     <dbl>
@@ -374,9 +363,6 @@ ggplot(weather_atl_summer,
        aes(x = humidity_scaled, y = temperatureHigh)) +
   geom_point() +
   geom_smooth(method = "lm")
-```
-
-```
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
@@ -396,9 +382,6 @@ model_complex <- lm(temperatureHigh ~ humidity_scaled + moonPhase_scaled +
                       precipProbability_scaled + windSpeed + pressure + cloudCover_scaled,
                     data = weather_atl_summer)
 tidy(model_complex, conf.int = TRUE)
-```
-
-```
 ## # A tibble: 7 × 7
 ##   term                     estimate std.error statistic   p.value conf.low conf.high
 ##   <chr>                       <dbl>     <dbl>     <dbl>     <dbl>    <dbl>     <dbl>
@@ -442,6 +425,8 @@ Neat! Now we can see how big these different coefficients are and how close they
 
 ### Marginal effects plots
 
+**2022 update!** Since recording the video for this section, lots of things have changed in the R world to make finding predicted values and marginal effects *a lot* easier. (This is why I had you [read my guide to marginal things](https://www.andrewheiss.com/blog/2022/05/20/marginalia/) as part of the readings for this session.) [The **marginaleffects** R package](https://vincentarelbundock.github.io/marginaleffects/) makes it really nice and easy to get predicted values of an outcome while holding everything else constant—you don't need to plug values in manually anymore like this section shows.
+
 Instead of just looking at the coefficients, we can also see the effect of moving different variables up and down like sliders and switches. Remember that regression coefficients allow us to build actual mathematical formulas that predict the value of Y. The coefficients from `model_compex` yield the following big hairy ugly equation:
 
 $$
@@ -462,9 +447,6 @@ newdata_example <- tibble(humidity_scaled = 50, moonPhase_scaled = 50,
                           precipProbability_scaled = 50, windSpeed = 1, 
                           pressure = 1000, cloudCover_scaled = 50)
 newdata_example
-```
-
-```
 ## # A tibble: 1 × 6
 ##   humidity_scaled moonPhase_scaled precipProbability_scaled windSpeed pressure cloudCover_scaled
 ##             <dbl>            <dbl>                    <dbl>     <dbl>    <dbl>             <dbl>
@@ -480,9 +462,6 @@ We can plug these values into the model with `augment()`. The `se_fit` argument 
 # and gets cut off
 augment(model_complex, newdata = newdata_example, se_fit = TRUE) %>% 
   select(.fitted, .se.fit)
-```
-
-```
 ## # A tibble: 1 × 2
 ##   .fitted .se.fit
 ##     <dbl>   <dbl>
@@ -502,9 +481,6 @@ newdata <- tibble(windSpeed = seq(0, 8, 0.5),
                   humidity_scaled = mean(weather_atl_summer$humidity_scaled),
                   cloudCover_scaled = mean(weather_atl_summer$cloudCover_scaled))
 newdata
-```
-
-```
 ## # A tibble: 17 × 6
 ##    windSpeed pressure precipProbability_scaled moonPhase_scaled humidity_scaled cloudCover_scaled
 ##        <dbl>    <dbl>                    <dbl>            <dbl>           <dbl>             <dbl>
@@ -540,9 +516,6 @@ predicted_values <- augment(model_complex,
 predicted_values %>% 
   select(windSpeed, .fitted, .se.fit, conf.low, conf.high) %>% 
   head()
-```
-
-```
 ## # A tibble: 6 × 5
 ##   windSpeed .fitted .se.fit conf.low conf.high
 ##       <dbl>   <dbl>   <dbl>    <dbl>     <dbl>
@@ -581,9 +554,6 @@ newdata_fancy <- expand_grid(windSpeed = seq(0, 8, 0.5),
                              humidity_scaled = mean(weather_atl_summer$humidity_scaled),
                              cloudCover_scaled = c(0, 33, 66, 100))
 newdata_fancy
-```
-
-```
 ## # A tibble: 68 × 6
 ##    windSpeed pressure precipProbability_scaled moonPhase_scaled humidity_scaled cloudCover_scaled
 ##        <dbl>    <dbl>                    <dbl>            <dbl>           <dbl>             <dbl>
@@ -611,7 +581,7 @@ predicted_values_fancy <- augment(model_complex,
                                   se_fit = TRUE) %>% 
   mutate(conf.low = .fitted + (-1.96 * .se.fit),
          conf.high = .fitted + (1.96 * .se.fit)) %>% 
-  # Make cloud cover a categorical variable
+  # Make cloud cover a categorical variable so we can facet with it
   mutate(cloudCover_scaled = factor(cloudCover_scaled))
 
 ggplot(predicted_values_fancy, aes(x = windSpeed, y = .fitted)) +
@@ -627,3 +597,256 @@ ggplot(predicted_values_fancy, aes(x = windSpeed, y = .fitted)) +
 <img src="/example/07-example_files/figure-html/mfx-complex-1.png" width="864" style="display: block; margin: auto;" />
 
 That's so neat! Temperatures go down slightly as cloud cover increases. If we wanted to improve the model, we'd add an interaction term between cloud cover and windspeed so that each line would have a different slope in addition to a different intercept, but that's beyond the scope of this class.
+
+
+### Predicted values and marginal effects in 2022
+
+Instead of using `expand_grid()` and `augment()` to create and plug in a mini dataset of variables to move up and down, we can use [the **marginaleffects** package](https://vincentarelbundock.github.io/marginaleffects/) to simplify life!
+
+Remember above where we wanted to see the effect of wind speed on temperature while holding all other variables in the model constant. We had to create a small data frame (`newdata`) with columns for each of the variables in the model, with everything except `windSpeed` set to their averages. We then plugged `newdata` into the model with `augment()` and calculated the confidence interval around each predicted value using `mutate()`. It's a fairly involved process, but it works: 
+
+
+```r
+# Make model
+model_complex <- lm(temperatureHigh ~ humidity_scaled + moonPhase_scaled + 
+                      precipProbability_scaled + windSpeed + pressure + cloudCover_scaled,
+                    data = weather_atl_summer)
+
+# Make mini dataset
+newdata <- tibble(windSpeed = seq(0, 8, 0.5),
+                  pressure = mean(weather_atl_summer$pressure),
+                  precipProbability_scaled = mean(weather_atl_summer$precipProbability_scaled),
+                  moonPhase_scaled = mean(weather_atl_summer$moonPhase_scaled),
+                  humidity_scaled = mean(weather_atl_summer$humidity_scaled),
+                  cloudCover_scaled = mean(weather_atl_summer$cloudCover_scaled))
+
+# Plug mini dataset into model
+predicted_values <- augment(model_complex, 
+                            newdata = newdata,
+                            se_fit = TRUE) %>% 
+  mutate(conf.low = .fitted + (-1.96 * .se.fit),
+         conf.high = .fitted + (1.96 * .se.fit))
+
+# Look at predicted values
+predicted_values %>% 
+  select(windSpeed, .fitted, .se.fit, conf.low, conf.high) %>% 
+  head()
+## # A tibble: 6 × 5
+##   windSpeed .fitted .se.fit conf.low conf.high
+##       <dbl>   <dbl>   <dbl>    <dbl>     <dbl>
+## 1       0      95.3   1.63      92.2      98.5
+## 2       0.5    94.5   1.42      91.7      97.2
+## 3       1      93.6   1.22      91.2      96.0
+## 4       1.5    92.7   1.03      90.7      94.7
+## 5       2      91.8   0.836     90.1      93.4
+## 6       2.5    90.9   0.653     89.6      92.2
+```
+
+The **marginaleffects** package makes this far easier. We can use the `predictions()` function to generate, um, predictions. We still need to feed it a smaller dataset of variables to manipulate, but if we use the `datagrid()` function, we *only have to specify the variables we want to move*. It will automatically use the averages or typical values for all other variables in the model. It will also automatically create confidence intervals for each prediction—no need for the `mutate(conf.low = .fitted + (-1.96 * .se.fit))` math that we did previously.
+
+
+```r
+library(marginaleffects)
+
+# Calculate predictions across a range of windSpeed
+predicted_values_easy <- predictions(model_complex, 
+                                     newdata = datagrid(windSpeed = seq(0, 8, 0.5)))
+
+# Look at predicted values
+predicted_values_easy %>%
+  select(windSpeed, predicted, std.error, conf.low, conf.high)
+##    windSpeed predicted std.error conf.low conf.high
+## 1        0.0        95      1.63       92        99
+## 2        0.5        94      1.42       92        97
+## 3        1.0        94      1.22       91        96
+## 4        1.5        93      1.03       91        95
+## 5        2.0        92      0.84       90        93
+## 6        2.5        91      0.65       90        92
+## 7        3.0        90      0.49       89        91
+## 8        3.5        89      0.37       88        90
+## 9        4.0        88      0.35       88        89
+## 10       4.5        87      0.44       86        88
+## 11       5.0        86      0.59       85        88
+## 12       5.5        86      0.77       84        87
+## 13       6.0        85      0.96       83        87
+## 14       6.5        84      1.16       82        86
+## 15       7.0        83      1.36       80        86
+## 16       7.5        82      1.56       79        85
+## 17       8.0        81      1.76       78        85
+```
+
+We can then plot this really easily too:
+
+
+```r
+ggplot(predicted_values_easy, aes(x = windSpeed, y = predicted)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high),
+              fill = "#BF3984", alpha = 0.5) + 
+  geom_line(size = 1, color = "#BF3984") +
+  labs(x = "Wind speed (MPH)", y = "Predicted high temperature (F)") +
+  theme_minimal()
+```
+
+<img src="/example/07-example_files/figure-html/mfx-plot-easy-pred-1.png" width="576" style="display: block; margin: auto;" />
+
+This works when moving multiple variables at the same time, too. Earlier we used `expand_grid()` to create a mini dataset of different values for both `windSpeed` and `cloudCover`, while holding all the other variables at their means. Here's how to do that with the much easier `predictions()` function:
+
+
+```r
+predicted_values_fancy_easy <- predictions(
+  model_complex,
+  newdata = datagrid(windSpeed = seq(0, 8, 0.5),
+                     cloudCover_scaled = c(0, 33, 66, 100))) %>%
+  # Make cloud cover a categorical variable so we can facet with it
+  mutate(cloudCover_scaled = factor(cloudCover_scaled))
+
+ggplot(predicted_values_fancy_easy, aes(x = windSpeed, y = predicted)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = cloudCover_scaled),
+              alpha = 0.5) + 
+  geom_line(aes(color = cloudCover_scaled), size = 1) +
+  labs(x = "Wind speed (MPH)", y = "Predicted high temperature (F)") +
+  theme_minimal() +
+  guides(fill = "none", color = "none") +
+  facet_wrap(vars(cloudCover_scaled), nrow = 1)
+```
+
+<img src="/example/07-example_files/figure-html/mfx-plot-complex-pred-1.png" width="864" style="display: block; margin: auto;" />
+
+That's it! `predictions()` makes this so easy!
+
+If we're interested in the slopes (or marginal effects) of these lines, we can calculate these really easily too with the `marginaleffects()` function. For instance, here are the predicted temperatures when just manipulating wind speed:
+
+
+```r
+ggplot(predicted_values_easy, aes(x = windSpeed, y = predicted)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high),
+              fill = "#BF3984", alpha = 0.5) + 
+  geom_line(size = 1, color = "#BF3984") +
+  labs(x = "Wind speed (MPH)", y = "Predicted high temperature (F)") +
+  theme_minimal()
+```
+
+<img src="/example/07-example_files/figure-html/mfx-plot-easy-pred-again-1.png" width="576" style="display: block; margin: auto;" />
+
+If we want to see what the slope of that line is when wind speed is 2, 4 and 6, we can use `marginaleffects()`:
+
+
+```r
+marginaleffects(model_complex, 
+                newdata = datagrid(windSpeed = c(2, 4, 6)), 
+                variables = "windSpeed") %>%
+  # This creates a ton of extra columns so we'll just look at a few
+  select(term, windSpeed, dydx, std.error, statistic, p.value, conf.low, conf.high)
+##        term windSpeed dydx std.error statistic p.value conf.low conf.high
+## 1 windSpeed         2 -1.8      0.41      -4.3 1.8e-05     -2.6     -0.96
+## 2 windSpeed         4 -1.8      0.41      -4.3 1.8e-05     -2.6     -0.96
+## 3 windSpeed         6 -1.8      0.41      -4.3 1.8e-05     -2.6     -0.96
+```
+
+The `dydx` column here shows that slope at each of those values of `windSpeed` is -1.8, meaning a 1-MPH increase in wind speed is associated with a nearly 2° decrease in predicted high temperature, on average. That's not super exciting though, since the predicted values create a nice straight line, with the same slope across the whole range of the line. It's also the same number we get from the model coefficient—run `tidy(model_complex)` and you'll see that the coefficient for `windSpeed` is -1.78. Since everything is linear here, using `marginaleffects()` isn't that important.
+
+For bonus fun and excitement, let's make an even more complex model with some non-linear curvy stuff and some interaction terms. We'll include both wind speed and wind speed squared (since maybe higher wind speeds have a larger effect on predicted temperatures), and the interaction between wind speed and cloud cover (since maybe temperature behaves differently at different combinations of wind speed and cloud cover). Again, I'm not a meteorologist so this model is *definitely wrong*, but it gives us some neat moving parts we can play with.
+
+
+```r
+# Make model
+# We square windSpeed with I(windSpeed^2). The I() function lets you do math
+# with regression terms.
+# We make an interaction term with *
+model_wild <- lm(temperatureHigh ~ humidity_scaled + moonPhase_scaled + 
+                   precipProbability_scaled + windSpeed + I(windSpeed^2) + 
+                   pressure + cloudCover_scaled + (windSpeed * cloudCover_scaled),
+                 data = weather_atl_summer)
+
+tidy(model_wild)
+## # A tibble: 9 × 5
+##   term                         estimate std.error statistic p.value
+##   <chr>                           <dbl>     <dbl>     <dbl>   <dbl>
+## 1 (Intercept)                 264.       126.        2.10    0.0374
+## 2 humidity_scaled              -0.122      0.0767   -1.58    0.115 
+## 3 moonPhase_scaled              0.0109     0.0128    0.849   0.397 
+## 4 precipProbability_scaled      0.0390     0.0207    1.88    0.0620
+## 5 windSpeed                     0.113      2.58      0.0438  0.965 
+## 6 I(windSpeed^2)               -0.198      0.330    -0.601   0.549 
+## 7 pressure                     -0.162      0.123    -1.32    0.190 
+## 8 cloudCover_scaled            -0.0691     0.0829   -0.833   0.406 
+## 9 windSpeed:cloudCover_scaled  -0.00688    0.0196   -0.351   0.726
+```
+
+We have some strange new regression coefficients now. We have two coefficients for wind speed: `windSpeed` and `I(windSpeed^2)`. We also have a coefficient for the interaction term `windspeed:cloudCover_scaled`. **We cannot interpret these individually**. If we want to know the effect of wind speed on high temperatures, we have to incorporate all three of these new coefficients simultaneously. Fortunately `predictions()` and `marginaleffects()` both handle that for us automatically.
+
+Let's plot the predictions to see that everything is more curvy now (and differently curved across different levels of cloud cover).
+
+
+```r
+predicted_values_wild <- predictions(
+  model_wild, 
+  newdata = datagrid(windSpeed = seq(0, 8, 0.5),
+                     cloudCover_scaled = c(0, 33, 66, 100))) %>%
+  # Make cloud cover a categorical variable so we can facet with it
+  mutate(cloudCover_scaled = factor(cloudCover_scaled))
+
+ggplot(predicted_values_wild, aes(x = windSpeed, y = predicted)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = cloudCover_scaled),
+              alpha = 0.5) + 
+  geom_line(aes(color = cloudCover_scaled), size = 1) +
+  labs(x = "Wind speed (MPH)", y = "Predicted high temperature (F)") +
+  theme_minimal() +
+  guides(fill = "none", color = "none") +
+  facet_wrap(vars(cloudCover_scaled), nrow = 1)
+```
+
+<img src="/example/07-example_files/figure-html/mfx-predictions-wild-1.png" width="864" style="display: block; margin: auto;" />
+
+That's neat! At all the different levels of cloud cover, the wind speed trend is fairly shallow (and even pretty flat when cloud cover is 0 or 33) at low levels of wind speed. The line drops fairly quickly as wind speed increases though. Let's get some exact numbers with `marginaleffects()`:
+
+
+```r
+marginaleffects(model_wild, 
+                newdata = datagrid(windSpeed = c(2, 4, 6),
+                                   cloudCover_scaled = c(0, 33, 66, 100)), 
+                variables = "windSpeed") %>%
+  # This creates a ton of extra columns so we'll just look at a few
+  select(term, windSpeed, cloudCover_scaled, dydx, std.error, 
+         statistic, p.value, conf.low, conf.high)
+##         term windSpeed cloudCover_scaled  dydx std.error statistic p.value conf.low conf.high
+## 1  windSpeed         2                 0 -0.68      1.35     -0.50 0.61465     -3.3     1.970
+## 2  windSpeed         2                33 -0.91      1.54     -0.59 0.55570     -3.9     2.112
+## 3  windSpeed         2                66 -1.13      1.94     -0.59 0.55817     -4.9     2.663
+## 4  windSpeed         2               100 -1.37      2.46     -0.56 0.57809     -6.2     3.454
+## 5  windSpeed         4                 0 -1.47      0.69     -2.13 0.03353     -2.8    -0.115
+## 6  windSpeed         4                33 -1.70      0.45     -3.80 0.00014     -2.6    -0.824
+## 7  windSpeed         4                66 -1.93      0.87     -2.22 0.02662     -3.6    -0.224
+## 8  windSpeed         4               100 -2.16      1.49     -1.46 0.14538     -5.1     0.748
+## 9  windSpeed         6                 0 -2.27      1.62     -1.40 0.16103     -5.4     0.904
+## 10 windSpeed         6                33 -2.50      1.23     -2.03 0.04250     -4.9    -0.084
+## 11 windSpeed         6                66 -2.72      1.12     -2.44 0.01466     -4.9    -0.536
+## 12 windSpeed         6               100 -2.96      1.36     -2.18 0.02941     -5.6    -0.296
+```
+
+Phew, we have 12 different slopes here. Let's talk through a few of them to get the intuition. If cloud cover is 0 and wind speed is 2 MPH, moving from 2 to 3 MPH is associated with a -0.68° decrease in high temperature on average (see the `dydx` column in the first row in the table). If the existing wind speed is 6 MPH, moving from 6 to 7 is associated with a -2.27° decrease in high temperature on average (see the `dydx` column in the 9th row of the table). The slope is steeper and more negative when the wind is faster, so changes in temperature are more dramatic. Because we have an interaction with cloud cover, the slope also changes at different levels of cloud cover. At 2 MPH of wind, the slope is -0.68° when cloud cover is 0 (first row), but -1.37° when cloud cover is 100 (4th row). 
+
+Finally, we can visualize how these slopes change across wind speed and cloud cover by plotting them:
+
+
+```r
+slopes_wild <- marginaleffects(
+  model_wild, 
+  newdata = datagrid(windSpeed = seq(0, 6, by = 0.1),
+                     cloudCover_scaled = c(0, 33, 66, 100)), 
+  variables = "windSpeed") %>%
+  mutate(cloudCover_scaled = factor(cloudCover_scaled))
+
+ggplot(slopes_wild, aes(x = windSpeed, y = dydx)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = cloudCover_scaled),
+              alpha = 0.5) +
+  geom_line(aes(color = cloudCover_scaled), size = 1) +
+  labs(x = "Wind speed (MPH)", y = "Slope (marginal effect) of wind speed",
+       title = "Marginal effect of wind speed across levels of cloud cover",
+       subtitle = "These are *slopes*, not predicted values") +
+  theme_minimal() +
+  guides(fill = "none", color = "none") +
+  facet_wrap(vars(cloudCover_scaled), nrow = 1)
+```
+
+<img src="/example/07-example_files/figure-html/plot-mfx-slopes-wild-1.png" width="864" style="display: block; margin: auto;" />

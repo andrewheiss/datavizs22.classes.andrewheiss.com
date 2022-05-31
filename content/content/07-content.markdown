@@ -18,6 +18,7 @@ slides: "07-slides"
 ## Readings
 
 -   <i class="fas fa-book"></i> Chapter 9 in Alberto Cairo, *The Truthful Art*[^1]
+-   <i class="fas fa-external-link-square-alt"></i> Andrew Heiss, [“Marginalia”](https://www.andrewheiss.com/blog/2022/05/20/marginalia/)
 -   <i class="fas fa-book"></i> [Chapter 12](https://clauswilke.com/dataviz/visualizing-associations.html) in Claus Wilke, *Fundamentals of Data Visualization*[^2]
 -   <i class="fas fa-external-link-square-alt"></i> Kieran Healy, [“Two y-axes”](https://kieranhealy.org/blog/archives/2016/01/16/two-y-axes/)
 -   <i class="fas fa-external-link-square-alt"></i> [Two Alternatives to Using a Second Y-Axis](http://stephanieevergreen.com/two-alternatives-to-using-a-second-y-axis/) & [Illusion of success](http://junkcharts.typepad.com/junk_charts/2006/06/illusion_of_suc.html) & [Dissecting two axes](http://junkcharts.typepad.com/junk_charts/2006/01/dissecting_two_.html)
