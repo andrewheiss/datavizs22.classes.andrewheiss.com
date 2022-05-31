@@ -29,7 +29,7 @@ There is no video for this one, since it really only involves feeding a few ggpl
 ## Complete code
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(fig.width = 6, fig.height = 3.6, fig.align = "center")
+knitr::opts_chunk$set(fig.width = 6, fig.height = 3.6, fig.align = "center", collapse = TRUE)
 set.seed(1234)
 options("digits" = 2, "width" = 150)
 ```

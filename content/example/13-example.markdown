@@ -1,9 +1,9 @@
 ---
 title: "Text"
 linktitle: "13: Text"
-date: "2021-07-19"
-start_date: "2021-07-19"
-end_date: "2021-07-23"
+date: "2022-07-18"
+start_date: "2022-07-18"
+end_date: "2022-07-22"
 toc: yes
 menu:
   example:
@@ -97,10 +97,7 @@ Here's what the start of our `little_women_raw` data looks like:
 
 ```r
 head(little_women_raw)
-```
-
-```
-## # A tibble: 6 x 3
+## # A tibble: 6 × 3
 ##   gutenberg_id text              title       
 ##          <dbl> <chr>             <chr>       
 ## 1          514 LITTLE WOMEN      Little Women
@@ -132,10 +129,7 @@ little_women <- little_women_raw %>%
   select(-gutenberg_id, -title, -chapter_start)
 
 head(little_women)
-```
-
-```
-## # A tibble: 6 x 2
+## # A tibble: 6 × 2
 ##   text                                                                        chapter_number
 ##   <chr>                                                                                <int>
 ## 1 "CHAPTER ONE"                                                                            1
@@ -151,10 +145,7 @@ The data from Shakespeare is similarly messy, with just three columns:
 
 ```r
 head(tragedies_raw)
-```
-
-```
-## # A tibble: 6 x 3
+## # A tibble: 6 × 3
 ##   gutenberg_id text                   title           
 ##          <dbl> <chr>                  <chr>           
 ## 1         1513 ROMEO AND JULIET       Romeo and Juliet
@@ -189,10 +180,7 @@ tragedies_words <- tragedies_raw %>%
   unnest_tokens(word, text)
 
 head(tragedies_words)
-```
-
-```
-## # A tibble: 6 x 3
+## # A tibble: 6 × 3
 ##   gutenberg_id title            word       
 ##          <dbl> <chr>            <chr>      
 ## 1         1513 Romeo and Juliet romeo      
@@ -226,10 +214,7 @@ top_words_tragedies <- tragedies_words %>%
   # Make the words an ordered factor so they plot in order
   mutate(word = fct_inorder(word))
 top_words_tragedies
-```
-
-```
-## # A tibble: 63 x 3
+## # A tibble: 63 × 3
 ##    title                     word        n
 ##    <chr>                     <fct>   <int>
 ##  1 Hamlet, Prince of Denmark ham       358
@@ -285,10 +270,7 @@ tragedies_bigrams <- tragedies_raw %>%
   # Put the two word columns back together
   unite(bigram, word1, word2, sep = " ")
 tragedies_bigrams
-```
-
-```
-## # A tibble: 9,579 x 3
+## # A tibble: 9,579 × 3
 ##    gutenberg_id title            bigram             
 ##           <dbl> <chr>            <chr>              
 ##  1         1513 Romeo and Juliet william shakespeare
@@ -302,9 +284,7 @@ tragedies_bigrams
 ##  9         1513 Romeo and Juliet tybalt nephew      
 ## 10         1513 Romeo and Juliet lady capulet       
 ## # … with 9,569 more rows
-```
 
-```r
 top_bigrams <- tragedies_bigrams %>% 
   # Count all the bigrams in each play
   count(title, bigram, sort = TRUE) %>% 
@@ -314,13 +294,8 @@ top_bigrams <- tragedies_bigrams %>%
   ungroup() %>% 
   # Make the bigrams an ordered factor so they plot in order
   mutate(bigram = fct_inorder(bigram))
-```
-
-```
 ## Selecting by n
-```
 
-```r
 ggplot(top_bigrams, aes(y = fct_rev(bigram), x = n, fill = title)) + 
   geom_col() + 
   guides(fill = "none") +
@@ -344,18 +319,10 @@ The log ratio idea shows how much more likely a word is compared to its counterp
 ```r
 # Take the log of 8:
 log2(8)
-```
-
-```
 ## [1] 3
-```
 
-```r
 # Reverse log of 3:
 2^3
-```
-
-```
 ## [1] 8
 ```
 
@@ -486,10 +453,7 @@ At its core, sentiment analysis involves looking at a big list of words for how 
 
 ```r
 get_sentiments("afinn")  # Scoring system
-```
-
-```
-## # A tibble: 2,477 x 2
+## # A tibble: 2,477 × 2
 ##    word       value
 ##    <chr>      <dbl>
 ##  1 abandon       -2
@@ -503,9 +467,6 @@ get_sentiments("afinn")  # Scoring system
 ##  9 abhorrent     -3
 ## 10 abhors        -3
 ## # … with 2,467 more rows
-```
-
-```r
 # get_sentiments("bing")  # Negative/positive
 # get_sentiments("nrc")  # Specific emotions
 # get_sentiments("loughran")  # Designed for financial statements; positive/negative
@@ -528,10 +489,7 @@ tragedy_words <- tragedies_raw %>%
 tragedy_sentiment <- tragedy_words %>% 
   inner_join(get_sentiments("bing"))
 tragedy_sentiment
-```
-
-```
-## # A tibble: 7,736 x 4
+## # A tibble: 7,736 × 4
 ##    gutenberg_id title            word       sentiment
 ##           <dbl> <chr>            <chr>      <chr>    
 ##  1         1513 Romeo and Juliet dignity    positive 
@@ -639,10 +597,7 @@ little_women_to_tag <- little_women %>%
   # Get rid of this column
   select(-data)
 little_women_to_tag
-```
-
-```
-## # A tibble: 47 x 2
+## # A tibble: 47 × 2
 ##    chapter_number text                                                                                                                                
 ##             <int> <chr>                                                                                                                               
 ##  1              1 "CHAPTER ONE PLAYING PILGRIMS \"Christmas won't be Christmas without any presents,\" grumbled Jo, lying on the rug. \"It's so dread…
@@ -683,10 +638,7 @@ Here's what the tagged text looks like:
 
 ```r
 little_women_tagged
-```
-
-```
-## # A tibble: 232,093 x 10
+## # A tibble: 232,093 × 10
 ##    doc_id   sid   tid token       token_with_ws lemma       upos  xpos  tid_source relation
 ##     <dbl> <dbl> <dbl> <chr>       <chr>         <chr>       <chr> <chr>      <dbl> <chr>   
 ##  1      1     1     1 "CHAPTER"   "CHAPTER"     "chapter"   NOUN  NN             4 nmod    
@@ -732,10 +684,7 @@ main_characters_by_chapter <- proper_nouns %>%
   mutate(chapter_name = paste("Chapter", chapter)) %>% 
   mutate(chapter_name = fct_inorder(chapter_name))
 main_characters_by_chapter
-```
-
-```
-## # A tibble: 177 x 6
+## # A tibble: 177 × 6
 ##    chapter lemma     n name    prop chapter_name
 ##      <dbl> <chr> <int> <ord>  <dbl> <fct>       
 ##  1       1 Amy      23 Amy   0.195  Chapter 1   

@@ -69,9 +69,6 @@ Let's look at the first few rows of the data to see what we're working with:
 
 ```r
 head(births_combined)
-```
-
-```
 ## # A tibble: 6 × 5
 ##    year month date_of_month day_of_week births
 ##   <dbl> <dbl>         <dbl>       <dbl>  <dbl>
@@ -105,9 +102,6 @@ births <- births_combined %>%
   mutate(weekend = ifelse(day_of_week %in% c("Saturday", "Sunday"), TRUE, FALSE))
 
 head(births)
-```
-
-```
 ## # A tibble: 6 × 7
 ##    year month   date_of_month day_of_week births date_of_month_categori… weekend
 ##   <dbl> <ord>           <dbl> <ord>        <dbl> <fct>                   <lgl>  
@@ -279,9 +273,6 @@ Neat! There are some really interesting trends here. Most obvious, probably, is 
 ```r
 avg_births_month_day %>% 
   arrange(avg_births)
-```
-
-```
 ## # A tibble: 366 × 3
 ## # Groups:   month [12]
 ##    month    date_of_month_categorical avg_births
@@ -305,9 +296,6 @@ The days with the highest average are in mid-September (lol my birthday is #2), 
 ```r
 avg_births_month_day %>% 
   arrange(desc(avg_births))
-```
-
-```
 ## # A tibble: 366 × 3
 ## # Groups:   month [12]
 ##    month     date_of_month_categorical avg_births

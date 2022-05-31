@@ -134,9 +134,6 @@ Here's what that reshaped data looked like before:
 
 ```r
 head(wdi_clean)
-```
-
-```
 ## # A tibble: 6 × 9
 ##   iso2c iso3c country  year population co2_emissions gdp_per_cap region                income     
 ##   <chr> <chr> <chr>   <dbl>      <dbl>         <dbl>       <dbl> <chr>                 <chr>      
@@ -153,9 +150,6 @@ And here's what it looks like now:
 
 ```r
 head(co2_rankings)
-```
-
-```
 ## # A tibble: 6 × 9
 ##   iso3c country              region                     income              rank_1995 rank_2014 rank_diff big_change better_big_change    
 ##   <chr> <chr>                <chr>                      <chr>                   <dbl>     <dbl>     <dbl> <lgl>      <chr>                

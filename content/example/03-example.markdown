@@ -103,13 +103,10 @@ First let's look at the distribution of grant amounts with a histogram. Map `gra
 ```r
 ggplot(data = bbc, mapping = aes(x = grant_amount)) +
   geom_histogram()
-```
-
-```
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-<img src="/example/03-example_files/figure-html/hist-basic-1.png" width="480" style="display: block; margin: auto;" />
+<img src="/example/03-example_files/figure-html/hist-basic-1.png" width="576" style="display: block; margin: auto;" />
 
 Notice that ggplot warns you about bin widths. By default it will divide the data into 30 equally spaced bins, which will most likely not be the best for your data. You should *always* set your own bin width to something more appropriate. There are no rules for correct bin widths. Just don't have them be too wide:
 
@@ -119,7 +116,7 @@ ggplot(data = bbc, mapping = aes(x = grant_amount)) +
   geom_histogram(binwidth = 100000)
 ```
 
-<img src="/example/03-example_files/figure-html/hist-wide-bin-1.png" width="480" style="display: block; margin: auto;" />
+<img src="/example/03-example_files/figure-html/hist-wide-bin-1.png" width="576" style="display: block; margin: auto;" />
 
 Or too small:
 
@@ -129,7 +126,7 @@ ggplot(data = bbc, mapping = aes(x = grant_amount)) +
   geom_histogram(binwidth = 500)
 ```
 
-<img src="/example/03-example_files/figure-html/hist-tiny-bins-1.png" width="480" style="display: block; margin: auto;" />
+<img src="/example/03-example_files/figure-html/hist-tiny-bins-1.png" width="576" style="display: block; margin: auto;" />
 
 £10,000 seems to fit well. It's often helpful to add a white border to the histogram bars, too:
 
@@ -139,7 +136,7 @@ ggplot(data = bbc, mapping = aes(x = grant_amount)) +
   geom_histogram(binwidth = 10000, color = "white")
 ```
 
-<img src="/example/03-example_files/figure-html/hist-good-bins-1.png" width="480" style="display: block; margin: auto;" />
+<img src="/example/03-example_files/figure-html/hist-good-bins-1.png" width="576" style="display: block; margin: auto;" />
 
 We can map other variables onto the plot, like mapping `grant_year_category` to the fill aesthetic:
 
@@ -149,7 +146,7 @@ ggplot(bbc, aes(x = grant_amount, fill = grant_year_category)) +
   geom_histogram(binwidth = 10000, color = "white")
 ```
 
-<img src="/example/03-example_files/figure-html/hist-bad-fill-1.png" width="480" style="display: block; margin: auto;" />
+<img src="/example/03-example_files/figure-html/hist-bad-fill-1.png" width="576" style="display: block; margin: auto;" />
 
 That gets really hard to interpret though, so we can facet by year with `facet_wrap()`:
 
@@ -160,7 +157,7 @@ ggplot(bbc, aes(x = grant_amount, fill = grant_year_category)) +
   facet_wrap(vars(grant_year))
 ```
 
-<img src="/example/03-example_files/figure-html/hist-facet-fill-1.png" width="480" style="display: block; margin: auto;" />
+<img src="/example/03-example_files/figure-html/hist-facet-fill-1.png" width="576" style="display: block; margin: auto;" />
 
 Neat!
 
@@ -174,7 +171,7 @@ ggplot(bbc, aes(x = grant_year_category, y = grant_amount)) +
   geom_point()
 ```
 
-<img src="/example/03-example_files/figure-html/points-initial-1.png" width="480" style="display: block; margin: auto;" />
+<img src="/example/03-example_files/figure-html/points-initial-1.png" width="576" style="display: block; margin: auto;" />
 
 We have some serious overplotting here, with dots so thick that it looks like lines. We can fix this a couple different ways. First, we can make the points semi-transparent using `alpha`, which ranges from 0 (completely invisible) to 1 (completely solid).
 
@@ -184,7 +181,7 @@ ggplot(bbc, aes(x = grant_year_category, y = grant_amount)) +
   geom_point(alpha = 0.1)
 ```
 
-<img src="/example/03-example_files/figure-html/points-alpha-1.png" width="480" style="display: block; margin: auto;" />
+<img src="/example/03-example_files/figure-html/points-alpha-1.png" width="576" style="display: block; margin: auto;" />
 
 We can also randomly space the points to spread them out using `position_jitter()`:
 
@@ -194,7 +191,7 @@ ggplot(bbc, aes(x = grant_year_category, y = grant_amount)) +
   geom_point(position = position_jitter())
 ```
 
-<img src="/example/03-example_files/figure-html/points-jitter-default-1.png" width="480" style="display: block; margin: auto;" />
+<img src="/example/03-example_files/figure-html/points-jitter-default-1.png" width="576" style="display: block; margin: auto;" />
 
 One issue with this, though, is that the points are jittered along the x-axis (which is fine, since they're all within the same year) *and* the y-axis (which is bad, since the amounts are actual numbers). We can tell ggplot to only jitter in one direction by specifying the `height` argument—we don't want any up-and-down jittering:
 
@@ -204,7 +201,7 @@ ggplot(bbc, aes(x = grant_year_category, y = grant_amount)) +
   geom_point(position = position_jitter(height = 0))
 ```
 
-<img src="/example/03-example_files/figure-html/points-jitter-horizontal-only-1.png" width="480" style="display: block; margin: auto;" />
+<img src="/example/03-example_files/figure-html/points-jitter-horizontal-only-1.png" width="576" style="display: block; margin: auto;" />
 
 There are some weird clusters around £30,000 and below. Let's map `grant_program` to the color aesthetic, which has two categories—regular grants and small grants—and see if that helps explain why:
 
@@ -214,7 +211,7 @@ ggplot(bbc, aes(x = grant_year_category, y = grant_amount, color = grant_program
   geom_point(position = position_jitter(height = 0))
 ```
 
-<img src="/example/03-example_files/figure-html/points-jitter-color-1.png" width="480" style="display: block; margin: auto;" />
+<img src="/example/03-example_files/figure-html/points-jitter-color-1.png" width="576" style="display: block; margin: auto;" />
 
 It does! We appear to have two different distributions of grants: small grants have a limit of £30,000, while regular grants have a much higher average amount.
 
@@ -228,7 +225,7 @@ ggplot(bbc, aes(x = grant_year_category, y = grant_amount, color = grant_program
   geom_boxplot()
 ```
 
-<img src="/example/03-example_files/figure-html/boxplot-1.png" width="480" style="display: block; margin: auto;" />
+<img src="/example/03-example_files/figure-html/boxplot-1.png" width="576" style="display: block; margin: auto;" />
 
 ### Summaries
 
@@ -244,9 +241,6 @@ bbc_by_year <- bbc %>%
 
 # Look at our summarized data
 bbc_by_year
-```
-
-```
 ## # A tibble: 4 × 4
 ##   grant_year    total    avg number
 ##        <dbl>    <dbl>  <dbl>  <int>
@@ -265,21 +259,23 @@ ggplot(bbc_by_year, aes(x = grant_year, y = avg)) +
   geom_col()
 ```
 
-<img src="/example/03-example_files/figure-html/plot-year-summaries-1.png" width="480" style="display: block; margin: auto;" />
+<img src="/example/03-example_files/figure-html/plot-year-summaries-1.png" width="576" style="display: block; margin: auto;" />
 
 ```r
+
 ggplot(bbc_by_year, aes(x = grant_year, y = total)) +
   geom_col()
 ```
 
-<img src="/example/03-example_files/figure-html/plot-year-summaries-2.png" width="480" style="display: block; margin: auto;" />
+<img src="/example/03-example_files/figure-html/plot-year-summaries-2.png" width="576" style="display: block; margin: auto;" />
 
 ```r
+
 ggplot(bbc_by_year, aes(x = grant_year, y = number)) +
   geom_col()
 ```
 
-<img src="/example/03-example_files/figure-html/plot-year-summaries-3.png" width="480" style="display: block; margin: auto;" />
+<img src="/example/03-example_files/figure-html/plot-year-summaries-3.png" width="576" style="display: block; margin: auto;" />
 
 Based on these charts, it looks like 2016 saw the largest average grant amount. In all other years, grants averaged around £60,000, but in 2016 it jumped up to £80,000. If we look at total grants, though, we can see that there were far fewer grants awarded in 2016—only 221! 2017 and 2018 were much bigger years with far more money awarded.
 
@@ -294,9 +290,6 @@ bbc_year_size <- bbc %>%
             number = n())
 
 bbc_year_size
-```
-
-```
 ## # A tibble: 8 × 5
 ## # Groups:   grant_year [4]
 ##   grant_year grant_program    total    avg number
@@ -319,7 +312,7 @@ ggplot(bbc_year_size, aes(x = grant_year, y = total, fill = grant_program)) +
   geom_col()
 ```
 
-<img src="/example/03-example_files/figure-html/plot-year-size-1.png" width="480" style="display: block; margin: auto;" />
+<img src="/example/03-example_files/figure-html/plot-year-size-1.png" width="576" style="display: block; margin: auto;" />
 
 By default, ggplot will stack the different fill colors within the same bar, but this makes it a little hard to make comparisons. While we can see that the average small grant amount was a little bigger in 2017 than in 2019, it's harder to compare average main grant amount, since the bottoms of those sections don't align.
 
@@ -331,7 +324,7 @@ ggplot(bbc_year_size, aes(x = grant_year, y = total, fill = grant_program)) +
   geom_col(position = position_dodge())
 ```
 
-<img src="/example/03-example_files/figure-html/plot-year-size-dodge-1.png" width="480" style="display: block; margin: auto;" />
+<img src="/example/03-example_files/figure-html/plot-year-size-dodge-1.png" width="576" style="display: block; margin: auto;" />
 
 Instead of dodging, we can also facet by `grant_program` to separate the bars:
 
@@ -342,7 +335,7 @@ ggplot(bbc_year_size, aes(x = grant_year, y = total, fill = grant_program)) +
   facet_wrap(vars(grant_program))
 ```
 
-<img src="/example/03-example_files/figure-html/plot-year-size-facet-1.png" width="480" style="display: block; margin: auto;" />
+<img src="/example/03-example_files/figure-html/plot-year-size-facet-1.png" width="576" style="display: block; margin: auto;" />
 
 We can put these in one column if we want:
 
@@ -353,7 +346,7 @@ ggplot(bbc_year_size, aes(x = grant_year, y = total, fill = grant_program)) +
   facet_wrap(vars(grant_program), ncol = 1)
 ```
 
-<img src="/example/03-example_files/figure-html/plot-year-size-col-1.png" width="480" style="display: block; margin: auto;" />
+<img src="/example/03-example_files/figure-html/plot-year-size-col-1.png" width="576" style="display: block; margin: auto;" />
 
 Finally, we can include even more variables! We have a lot of aesthetics we can work with (`size`, `alpha`, `color`, `fill`, `linetype`, etc.), as well as facets, so let's add one more to show the duration of the awarded grant.
 
@@ -368,9 +361,6 @@ bbc_year_size_duration <- bbc %>%
             number = n())
 
 bbc_year_size_duration
-```
-
-```
 ## # A tibble: 21 × 6
 ## # Groups:   grant_year, grant_program [8]
 ##    grant_year grant_program grant_duration_text    total    avg number
@@ -397,6 +387,6 @@ ggplot(bbc_year_size_duration, aes(x = grant_year, y = number, fill = grant_prog
   facet_wrap(vars(grant_duration_text), ncol = 1)
 ```
 
-<img src="/example/03-example_files/figure-html/plot-year-size-duration-1.png" width="480" style="display: block; margin: auto;" />
+<img src="/example/03-example_files/figure-html/plot-year-size-duration-1.png" width="576" style="display: block; margin: auto;" />
 
 The vast majority of BBC Children in Need's grants last for 3 years. Super neat.

@@ -41,7 +41,7 @@ If you want to see other examples of text visualizations with the **tidytext** p
 *(This is a highly cleaned up version of the code from the video.)*
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(fig.width = 7, fig.height = 4.2, fig.align = "center")
+knitr::opts_chunk$set(fig.width = 7, fig.height = 4.2, fig.align = "center", collapse = TRUE)
 set.seed(1234)
 options("digits" = 2, "width" = 150)
 options(dplyr.summarise.inform = FALSE)

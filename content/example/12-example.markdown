@@ -432,9 +432,6 @@ At the beginning we loaded a shapefile for all large and small rivers in the US.
 
 ```r
 head(rivers_na)
-```
-
-```
 ## Simple feature collection with 6 features and 37 fields
 ## Geometry type: MULTILINESTRING
 ## Dimension:     XY
@@ -475,9 +472,6 @@ We need to do a little GIS work to basically use `only_georgia` as a cookie cutt
 
 ```r
 ga_rivers_na <- st_intersection(only_georgia, rivers_na)
-```
-
-```
 ## Error in geos_op2_geom("intersection", x, y, ...): st_crs(x) == st_crs(y) is not TRUE
 ```
 
@@ -486,9 +480,6 @@ Oh no! An error! It's complaining that the reference systems used in these two d
 
 ```r
 st_crs(only_georgia)
-```
-
-```
 ## Coordinate Reference System:
 ##   User input: NAD83 
 ##   wkt:
@@ -506,13 +497,7 @@ st_crs(only_georgia)
 ##             ORDER[2],
 ##             ANGLEUNIT["degree",0.0174532925199433]],
 ##     ID["EPSG",4269]]
-```
-
-```r
 st_crs(rivers_na)
-```
-
-```
 ## Coordinate Reference System:
 ##   User input: WGS 84 
 ##   wkt:
@@ -540,9 +525,6 @@ only_georgia_4326 <- only_georgia %>%
   st_transform(crs = st_crs("EPSG:4326"))
 
 ga_rivers_na <- st_intersection(only_georgia_4326, rivers_na)
-```
-
-```
 ## Warning: attribute variables are assumed to be spatially constant throughout all geometries
 ```
 
@@ -598,9 +580,6 @@ We loaded the shapefile up at the top, but now let's look at it:
 
 ```r
 head(ga_schools)
-```
-
-```
 ## Simple feature collection with 6 features and 16 fields
 ## Geometry type: POINT
 ## Dimension:     XY
@@ -687,9 +666,6 @@ ga_schools_fixed %>%
   select(COUNTY, SCHOOLNAME, TOTAL) %>% 
   arrange(desc(TOTAL)) %>% 
   head()
-```
-
-```
 ## Simple feature collection with 6 features and 3 fields
 ## Geometry type: POINT
 ## Dimension:     XY
@@ -724,9 +700,6 @@ ga_cities <- tribble(
   "Savannah", 32.113192, -81.089350
 )
 ga_cities
-```
-
-```
 ## # A tibble: 3 × 3
 ##   city       lat  long
 ##   <chr>    <dbl> <dbl>
@@ -744,9 +717,6 @@ We can convert those two columns to the magic `geometry` column with the `st_as_
 ga_cities_geometry <- ga_cities %>% 
   st_as_sf(coords = c("long", "lat"), crs = st_crs("EPSG:4326"))
 ga_cities_geometry
-```
-
-```
 ## Simple feature collection with 3 features and 1 field
 ## Geometry type: POINT
 ## Dimension:     XY
@@ -820,9 +790,6 @@ some_addresses <- tribble(
 )
 
 some_addresses
-```
-
-```
 ## # A tibble: 2 × 2
 ##   name                                      address                                 
 ##   <chr>                                     <chr>                                   
@@ -859,9 +826,6 @@ addresses_geometry <- geocoded_addresses %>%
   st_as_sf(coords = c("long", "lat"), crs = st_crs("EPSG:4326"))
 
 addresses_geometry %>% select(-address)
-```
-
-```
 ## Simple feature collection with 2 features and 1 field
 ## Geometry type: POINT
 ## Dimension:     XY
@@ -918,9 +882,6 @@ Let's see what we got:
 
 ```r
 head(wdi_raw)
-```
-
-```
 ## # A tibble: 6 × 11
 ##   iso2c country                                       SP.DYN.LE00.IN  year iso3c region                capital       longitude latitude income lending
 ##   <chr> <chr>                                                  <dbl> <dbl> <chr> <chr>                 <chr>             <dbl>    <dbl> <chr>  <chr>  
@@ -943,9 +904,6 @@ Let's clean up the WDI data and shrink it down substantially:
 wdi_clean_small <- wdi_raw %>% 
   select(life_expectancy = SP.DYN.LE00.IN, iso3c)
 wdi_clean_small
-```
-
-```
 ## # A tibble: 264 × 2
 ##    life_expectancy iso3c
 ##              <dbl> <chr>

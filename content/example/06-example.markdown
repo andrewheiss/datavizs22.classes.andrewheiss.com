@@ -222,9 +222,6 @@ weather_atl_long <- weather_atl %>%
 
 # Show the first few rows
 head(weather_atl_long)
-```
-
-```
 ## # A tibble: 6 × 4
 ##   time                temp_type  temp Month  
 ##   <dttm>              <chr>     <dbl> <ord>  

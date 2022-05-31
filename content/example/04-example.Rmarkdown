@@ -34,7 +34,7 @@ If you want to follow along with this example, you can download the data directl
 *(This is a slightly cleaned up version of the code from the video.)*
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(fig.width = 6, fig.height = 3.6, fig.align = "center")
+knitr::opts_chunk$set(fig.width = 6, fig.height = 3.6, fig.align = "center", collapse = TRUE)
 set.seed(1234)
 options(dplyr.summarise.inform = FALSE)
 ```

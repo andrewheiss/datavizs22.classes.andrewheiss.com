@@ -107,9 +107,6 @@ wdi_clean <- wdi_raw %>%
          region, income)
 
 head(wdi_clean)
-```
-
-```
 ## # A tibble: 6 × 9
 ##   iso2c country  year life_expectancy access_to_electricity co2_emissions gdp_per_cap region                income     
 ##   <chr> <chr>   <dbl>           <dbl>                 <dbl>         <dbl>       <dbl> <chr>                 <chr>      

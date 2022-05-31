@@ -120,9 +120,6 @@ To fix this, the **tidyquant** package gives you data in tidy (or long) form and
 
 ```r
 head(fred_raw)
-```
-
-```
 ## # A tibble: 6 × 3
 ##   symbol date        price
 ##   <chr>  <date>      <dbl>
@@ -144,9 +141,6 @@ retail_sales <- fred_raw %>%
   filter(symbol == "RSXFSN")
 
 retail_sales
-```
-
-```
 ## # A tibble: 351 × 3
 ##    symbol date        price
 ##    <chr>  <date>      <dbl>
@@ -173,9 +167,6 @@ fred_monthly_things <- fred_raw %>%
   pivot_wider(names_from = symbol, values_from = price)
 
 fred_monthly_things
-```
-
-```
 ## # A tibble: 375 × 4
 ##    date       RSXFSN FPCPITOTLZGUSA UNRATE
 ##    <date>      <dbl>          <dbl>  <dbl>
@@ -203,9 +194,6 @@ fred_monthly_things <- fred_raw %>%
   rename(unemployment = UNRATE, retail_sales = RSXFSN)
 
 fred_monthly_things
-```
-
-```
 ## # A tibble: 375 × 3
 ##    date       retail_sales unemployment
 ##    <date>            <dbl>        <dbl>
@@ -303,9 +291,6 @@ That's great and almost good enough to publish! We can add one additional layer 
 ```r
 fred_raw %>% 
   filter(symbol == "USREC")
-```
-
-```
 ## # A tibble: 375 × 3
 ##    symbol date       price
 ##    <chr>  <date>     <dbl>
@@ -332,9 +317,6 @@ recessions_tidy <- fred_raw %>%
   filter(symbol == "USREC") %>% 
   mutate(recession_change = price - lag(price))
 recessions_tidy
-```
-
-```
 ## # A tibble: 375 × 4
 ##    symbol date       price recession_change
 ##    <chr>  <date>     <dbl>            <dbl>
@@ -362,9 +344,6 @@ recessions_start_end <- fred_raw %>%
   mutate(recession_change = price - lag(price)) %>% 
   filter(recession_change != 0)
 recessions_start_end
-```
-
-```
 ## # A tibble: 7 × 4
 ##   symbol date       price recession_change
 ##   <chr>  <date>     <dbl>            <dbl>
@@ -392,16 +371,13 @@ recessions_fake_end <- recessions_start_end %>%
 recessions <- tibble(start = filter(recessions_fake_end, recession_change == 1)$date,
                      end = filter(recessions_fake_end, recession_change == -1)$date)
 recessions
-```
-
-```
 ## # A tibble: 4 × 2
 ##   start      end       
 ##   <date>     <date>    
 ## 1 1990-08-01 1991-04-01
 ## 2 2001-04-01 2001-12-01
 ## 3 2008-01-01 2009-07-01
-## 4 2020-03-01 2022-05-30
+## 4 2020-03-01 2022-05-31
 ```
 
 We can now add this tiny dataset to our plot using `geom_rect()`. Notice how we put `geom_rect()` *before* `geom_line()`—that's so the recession rectangles go under the line instead of on top of it. Also notice that we have to specify 4 new aesthetics for `geom_rect()`: min and max values for both x and y. We use the recession start and end dates for `xmin` and `xmax`, and then use −∞ and ∞ for `ymin` and `ymax` to make the rectangles stretch from the bottom of the plot to the top.
@@ -491,9 +467,6 @@ retail_sales <- fred_raw %>%
   mutate(year_month = yearmonth(date)) %>% 
   as_tsibble(index = year_month)
 retail_sales
-```
-
-```
 ## # A tsibble: 351 x 4 [1M]
 ##    symbol date        price year_month
 ##    <chr>  <date>      <dbl>      <mth>
@@ -521,9 +494,6 @@ library(feasts)  # For decomposition things like STL()
 retail_model <- retail_sales %>% 
   model(stl = STL(price))
 retail_model
-```
-
-```
 ## # A mable: 1 x 1
 ##       stl
 ##   <model>
@@ -538,9 +508,6 @@ We can extract the different components of the decomposition with the `component
 ```r
 retail_components <- components(retail_model)
 retail_components
-```
-
-```
 ## # A dable: 351 x 7 [1M]
 ## # Key:     .model [1]
 ## # :        price = trend + season_year + remainder
@@ -636,9 +603,6 @@ retail_components_tidy <- retail_components %>%
   mutate(component = fct_inorder(component))
 
 retail_components_tidy
-```
-
-```
 ## # A tsibble: 1,404 x 4 [1M]
 ## # Key:       .model, component [4]
 ##    .model year_month component     value

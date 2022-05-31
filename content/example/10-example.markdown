@@ -128,11 +128,7 @@ static_plot_toolip <- ggplot(wdi_2019,
                                 "#9f3e00", "#0146bf", "#671d56")) +
   labs(x = "% women in parliament", y = NULL, caption = "Source: The World Bank") +
   theme_bw()
-```
-
-    ## Warning: Ignoring unknown aesthetics: text
-
-``` r
+## Warning: Ignoring unknown aesthetics: text
 static_plot_toolip
 ```
 
@@ -182,17 +178,16 @@ Let’s check to see if it worked:
 
 ``` r
 wdi_2019 %>% select(country, prop_women_parl, fancy_label) %>% head()
+## # A tibble: 6 × 3
+##   country              prop_women_parl fancy_label                                      
+##   <chr>                          <dbl> <chr>                                            
+## 1 Andorra                        0.5   Andorra<br>50.0% women in parliament             
+## 2 United Arab Emirates           0.225 United Arab Emirates<br>22.5% women in parliament
+## 3 Afghanistan                    0.279 Afghanistan<br>27.9% women in parliament         
+## 4 Antigua and Barbuda            0.111 Antigua and Barbuda<br>11.1% women in parliament 
+## 5 Albania                        0.295 Albania<br>29.5% women in parliament             
+## 6 Armenia                        0.242 Armenia<br>24.2% women in parliament
 ```
-
-    ## # A tibble: 6 × 3
-    ##   country              prop_women_parl fancy_label                                      
-    ##   <chr>                          <dbl> <chr>                                            
-    ## 1 Andorra                        0.5   Andorra<br>50.0% women in parliament             
-    ## 2 United Arab Emirates           0.225 United Arab Emirates<br>22.5% women in parliament
-    ## 3 Afghanistan                    0.279 Afghanistan<br>27.9% women in parliament         
-    ## 4 Antigua and Barbuda            0.111 Antigua and Barbuda<br>11.1% women in parliament 
-    ## 5 Albania                        0.295 Albania<br>29.5% women in parliament             
-    ## 6 Armenia                        0.242 Armenia<br>24.2% women in parliament
 
 Now instead of using `text = country` we’ll use `text = fancy_label` to map that new column onto the plot. Again, this won’t be visible in the static plot (and you’ll get a warning), but it will show up in the interactive plot.
 
@@ -210,9 +205,8 @@ static_plot_toolip_fancy <- ggplot(wdi_2019,
                                 "#9f3e00", "#0146bf", "#671d56")) +
   labs(x = "% women in parliament", y = NULL, caption = "Source: The World Bank") +
   theme_bw()
+## Warning: Ignoring unknown aesthetics: text
 ```
-
-    ## Warning: Ignoring unknown aesthetics: text
 
 ``` r
 ggplotly(static_plot_toolip_fancy, tooltip = "text")

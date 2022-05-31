@@ -110,7 +110,7 @@ These shapefiles all came from these sources:
 *(This is a slightly cleaned up version of the code from the video.)*
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(fig.width = 6, fig.height = 3.6, fig.align = "center")
+knitr::opts_chunk$set(fig.width = 6, fig.height = 3.6, fig.align = "center", collapse = TRUE)
 set.seed(1234)
 options("digits" = 2, "width" = 150)
 ```
