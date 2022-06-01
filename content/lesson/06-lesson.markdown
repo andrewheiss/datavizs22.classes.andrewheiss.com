@@ -1,7 +1,7 @@
 ---
 title: "Uncertainty"
 linktitle: "6: Uncertainty"
-date: "2021-05-18"
+date: "2022-05-17"
 menu:
   lesson:
     parent: Lessons
@@ -17,7 +17,7 @@ shiny: true
 
 Throughout this lesson, you'll use the built-in `mpg` dataset to make histograms, density plots, box plots, violin plots, and other graphics that show uncertainty. 
 
-Sorry if `mpg` is getting repetitive! For short interactive things like this, it's easier to use built-in and easy-to-load datasets like `mpg` and `gapminder` instead of loading CSV files, hence our constant reuse of the dataset. This is fairly normal too—the majority of examples in R help pages (and in peoples' blog posts) use things like `mpg` or `gapminder`, or even `iris`, which measures the lengths and widths of a bunch of iris flowers in the 1930s (fun fact! I don't like using `iris` because the data was originally used in an article in the *Annals of Eugenics* (😬) in 1936, and the data was collected to advance eugenics, and [there's no good reason to use data like that in 2021](https://armchairecology.blog/iris-dataset/).) 
+Sorry if `mpg` is getting repetitive! For short interactive things like this, it's easier to use built-in and easy-to-load datasets like `mpg` and `gapminder` instead of loading CSV files, hence our constant reuse of the dataset. This is fairly normal too—the majority of examples in R help pages (and in peoples' blog posts) use things like `mpg` or `gapminder`, or even `iris`, which measures the lengths and widths of a bunch of iris flowers in the 1930s (fun fact! I don't like using `iris` because the data was originally used in an article in the *Annals of Eugenics* (😬) in 1936, and the data was collected to advance eugenics, and [there's no good reason to use data like that in 2022](https://armchairecology.blog/iris-dataset/).) 
 
 So we work with cars instead of racist flower data.
 
@@ -28,10 +28,7 @@ As a reminder, here are the first few rows of the `mpg` dataset:
 
 ```r
 head(mpg)
-```
-
-```
-## # A tibble: 6 x 11
+## # A tibble: 6 × 11
 ##   manufacturer model displ  year   cyl trans      drv     cty   hwy fl    class 
 ##   <chr>        <chr> <dbl> <int> <int> <chr>      <chr> <int> <int> <chr> <chr> 
 ## 1 audi         a4      1.8  1999     4 auto(l5)   f        18    29 p     compa…

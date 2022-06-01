@@ -15,6 +15,7 @@ shiny: true
 
 ```{r setup, include=FALSE}
 library(tidyverse)
+knitr::opts_chunk$set(fig.align = "center", collapse = TRUE)
 ```
 
 
@@ -77,12 +78,33 @@ y <- tibble(id = c(1, 2, 4),
 
 ```{r}
 x
+```
+
+```{r}
 y
+```
+
+```{r}
 national_data
+```
+
+```{r}
 national_data_2019
+```
+
+```{r}
 national_libraries
+```
+
+```{r}
 national_libraries_2019
+```
+
+```{r}
 puerto_rico_data
+```
+
+```{r}
 state_regions
 ```
 
@@ -141,6 +163,9 @@ Let's look at two datasets, `x` and `y`:
 
 ```{r}
 x
+```
+
+```{r}
 y
 ```
 
@@ -165,6 +190,9 @@ Let's say we have two datasets: `national_data_2019` and `national_libraries_201
 
 ```{r}
 national_data_2019
+```
+
+```{r}
 national_libraries_2019
 ```
 

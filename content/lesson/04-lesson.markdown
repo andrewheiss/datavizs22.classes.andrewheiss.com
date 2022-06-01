@@ -1,7 +1,7 @@
 ---
 title: "Amounts and proportions"
 linktitle: "4: Amounts and proportions"
-date: "2021-06-14"
+date: "2022-06-13"
 menu:
   lesson:
     parent: Lessons
@@ -51,10 +51,7 @@ This code, for instance, will look at the `gapminder` dataset and return all row
 
 ```r
 filter(gapminder, country == "Denmark")
-```
-
-```
-## # A tibble: 12 x 6
+## # A tibble: 12 × 6
 ##    country continent  year lifeExp     pop gdpPercap
 ##    <fct>   <fct>     <int>   <dbl>   <int>     <dbl>
 ##  1 Denmark Europe     1952    70.8 4334000     9692.
@@ -104,10 +101,7 @@ You can also use multiple conditions, and these will extract rows that meet ever
 
 ```r
 filter(gapminder, country == "Denmark", year > 2000)
-```
-
-```
-## # A tibble: 2 x 6
+## # A tibble: 2 × 6
 ##   country continent  year lifeExp     pop gdpPercap
 ##   <fct>   <fct>     <int>   <dbl>   <int>     <dbl>
 ## 1 Denmark Europe     2002    77.2 5374693    32167.
@@ -166,10 +160,7 @@ You create new columns with the `mutate()` function. You can create a single col
 
 ```r
 mutate(gapminder, gdp = gdpPercap * pop)
-```
-
-```
-## # A tibble: 1,704 x 7
+## # A tibble: 1,704 × 7
 ##    country     continent  year lifeExp      pop gdpPercap          gdp
 ##    <fct>       <fct>     <int>   <dbl>    <int>     <dbl>        <dbl>
 ##  1 Afghanistan Asia       1952    28.8  8425333      779.  6567086330.
@@ -191,10 +182,7 @@ And you can create multiple columns by including a comma-separated list of new c
 ```r
 mutate(gapminder, gdp = gdpPercap * pop,
                   pop_mill = round(pop / 1000000))
-```
-
-```
-## # A tibble: 1,704 x 8
+## # A tibble: 1,704 × 8
 ##    country     continent  year lifeExp      pop gdpPercap          gdp pop_mill
 ##    <fct>       <fct>     <int>   <dbl>    <int>     <dbl>        <dbl>    <dbl>
 ##  1 Afghanistan Asia       1952    28.8  8425333      779.  6567086330.        8
@@ -222,10 +210,7 @@ We can create a new column that is a binary indicator for whether the country's 
 
 ```r
 mutate(gapminder, after_1960 = ifelse(year > 1960, TRUE, FALSE))
-```
-
-```
-## # A tibble: 1,704 x 7
+## # A tibble: 1,704 × 7
 ##    country     continent  year lifeExp      pop gdpPercap after_1960
 ##    <fct>       <fct>     <int>   <dbl>    <int>     <dbl> <lgl>     
 ##  1 Afghanistan Asia       1952    28.8  8425333      779. FALSE     
@@ -247,10 +232,7 @@ We can also use text labels instead of `TRUE` and `FALSE`:
 ```r
 mutate(gapminder, 
        after_1960 = ifelse(year > 1960, "After 1960", "Before 1960"))
-```
-
-```
-## # A tibble: 1,704 x 7
+## # A tibble: 1,704 × 7
 ##    country     continent  year lifeExp      pop gdpPercap after_1960 
 ##    <fct>       <fct>     <int>   <dbl>    <int>     <dbl> <chr>      
 ##  1 Afghanistan Asia       1952    28.8  8425333      779. Before 1960
@@ -358,10 +340,7 @@ The `summarize()` verb takes an entire frame and calculates summary information 
 
 ```r
 gapminder %>% summarize(mean_life = mean(lifeExp))
-```
-
-```
-## # A tibble: 1 x 1
+## # A tibble: 1 × 1
 ##   mean_life
 ##       <dbl>
 ## 1      59.5
@@ -373,10 +352,7 @@ You can also make multiple summary variables, just like `mutate()`, and it will 
 ```r
 gapminder %>% summarize(mean_life = mean(lifeExp),
                         min_life = min(lifeExp))
-```
-
-```
-## # A tibble: 1 x 2
+## # A tibble: 1 × 2
 ##   mean_life min_life
 ##       <dbl>    <dbl>
 ## 1      59.5     23.6
@@ -410,10 +386,7 @@ The `group_by()` function puts rows into groups based on values in a column. If 
 
 ```r
 gapminder %>% group_by(continent)
-```
-
-```
-## # A tibble: 1,704 x 6
+## # A tibble: 1,704 × 6
 ## # Groups:   continent [5]
 ##    country     continent  year lifeExp      pop gdpPercap
 ##    <fct>       <fct>     <int>   <dbl>    <int>     <dbl>
@@ -439,10 +412,7 @@ For instance, this will take the `gapminder` data frame, group it by continent, 
 gapminder %>% 
   group_by(continent) %>% 
   summarize(n_countries = n_distinct(country)) 
-```
-
-```
-## # A tibble: 5 x 2
+## # A tibble: 5 × 2
 ##   continent n_countries
 ##   <fct>           <int>
 ## 1 Africa             52
@@ -460,10 +430,7 @@ gapminder %>%
   group_by(continent) %>% 
   summarize(n_countries = n_distinct(country),
             avg_life_exp = mean(lifeExp)) 
-```
-
-```
-## # A tibble: 5 x 3
+## # A tibble: 5 × 3
 ##   continent n_countries avg_life_exp
 ##   <fct>           <int>        <dbl>
 ## 1 Africa             52         48.9
@@ -496,10 +463,7 @@ Finally, you can group by multiple columns and R will create subgroups for every
 gapminder %>% 
   group_by(continent, year) %>% 
   summarize(avg_life_exp = mean(lifeExp)) 
-```
-
-```
-## # A tibble: 60 x 3
+## # A tibble: 60 × 3
 ## # Groups:   continent [5]
 ##    continent  year avg_life_exp
 ##    <fct>     <int>        <dbl>
@@ -526,10 +490,7 @@ You can choose specific columns with the `select()` verb. This will only keep tw
 
 ```r
 gapminder %>% select(lifeExp, year)
-```
-
-```
-## # A tibble: 1,704 x 2
+## # A tibble: 1,704 × 2
 ##    lifeExp  year
 ##      <dbl> <int>
 ##  1    28.8  1952
@@ -550,10 +511,7 @@ You can remove specific columns by prefacing the column names with `-`, like `-l
 
 ```r
 gapminder %>% select(-lifeExp)
-```
-
-```
-## # A tibble: 1,704 x 5
+## # A tibble: 1,704 × 5
 ##    country     continent  year      pop gdpPercap
 ##    <fct>       <fct>     <int>    <int>     <dbl>
 ##  1 Afghanistan Asia       1952  8425333      779.
@@ -574,10 +532,7 @@ You can also rename columns using `select()`. Follow this pattern: `select(old_n
 
 ```r
 gapminder %>% select(year, country, life_expectancy = lifeExp)
-```
-
-```
-## # A tibble: 1,704 x 3
+## # A tibble: 1,704 × 3
 ##     year country     life_expectancy
 ##    <int> <fct>                 <dbl>
 ##  1  1952 Afghanistan            28.8
@@ -598,10 +553,7 @@ Alternatively, there's a special `rename()` verb that will, um, rename, while ke
 
 ```r
 gapminder %>% rename(life_expectancy = lifeExp)
-```
-
-```
-## # A tibble: 1,704 x 6
+## # A tibble: 1,704 × 6
 ##    country     continent  year life_expectancy      pop gdpPercap
 ##    <fct>       <fct>     <int>           <dbl>    <int>     <dbl>
 ##  1 Afghanistan Asia       1952            28.8  8425333      779.
@@ -624,10 +576,7 @@ The `arrange()` verb sorts data. By default it sorts ascendingly, putting the lo
 
 ```r
 gapminder %>% arrange(lifeExp)
-```
-
-```
-## # A tibble: 1,704 x 6
+## # A tibble: 1,704 × 6
 ##    country      continent  year lifeExp     pop gdpPercap
 ##    <fct>        <fct>     <int>   <dbl>   <int>     <dbl>
 ##  1 Rwanda       Africa     1992    23.6 7290203      737.
@@ -648,10 +597,7 @@ You can reverse that by wrapping the column name with `desc()`:
 
 ```r
 gapminder %>% arrange(desc(lifeExp))
-```
-
-```
-## # A tibble: 1,704 x 6
+## # A tibble: 1,704 × 6
 ##    country          continent  year lifeExp       pop gdpPercap
 ##    <fct>            <fct>     <int>   <dbl>     <int>     <dbl>
 ##  1 Japan            Asia       2007    82.6 127467972    31656.
@@ -673,10 +619,7 @@ You can sort by multiple columns by specifying them in a comma separated list. F
 ```r
 gapminder %>% 
   arrange(continent, desc(lifeExp))
-```
-
-```
-## # A tibble: 1,704 x 6
+## # A tibble: 1,704 × 6
 ##    country   continent  year lifeExp      pop gdpPercap
 ##    <fct>     <fct>     <int>   <dbl>    <int>     <dbl>
 ##  1 Reunion   Africa     2007    76.4   798094     7670.
@@ -701,7 +644,7 @@ Those are the main verbs you'll deal with in this class. There are dozens of oth
 
 Recall from session 3 that the grammar of graphics uses a set of layers to define elements of plots:
 
-<img src="/slides/img/03/ggplot-layers@4x.png" width="50%" style="display: block; margin: auto;" />
+<img src="../../../../../../../slides/img/03/ggplot-layers@4x.png" width="50%" style="display: block; margin: auto;" />
 
 In tomorrow's session, you'll learn all about the Theme layer. Here we'll briefly cover the Scales layer, which we use for changing aspects of the different aesthetics, like using logged axes or changing colors or shapes.
 

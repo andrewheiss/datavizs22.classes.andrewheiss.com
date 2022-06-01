@@ -15,7 +15,7 @@ shiny: true
 
 ```{r setup, include=FALSE}
 library(ggplot2)
-knitr::opts_chunk$set(fig.width = 6, fig.height = 4.5, fig.align = "center")
+knitr::opts_chunk$set(fig.width = 6, fig.height = 4.5, fig.align = "center", collapse = TRUE)
 set.seed(1234)
 ```
 

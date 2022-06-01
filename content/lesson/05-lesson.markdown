@@ -1,7 +1,7 @@
 ---
 title: "Themes"
 linktitle: "5: Themes"
-date: "2021-05-15"
+date: "2022-05-14"
 menu:
   lesson:
     parent: Lessons
@@ -194,6 +194,7 @@ ggplot(data = mpg,
 <img src="/lesson/05-lesson_files/figure-html/saved-theme-1.png" width="576" style="display: block; margin: auto;" />
 
 ```r
+
 # Make another plot
 ggplot(data = mpg,
        mapping = aes(x = displ, y = hwy, color = cty)) +

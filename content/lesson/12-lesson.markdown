@@ -25,10 +25,7 @@ There are a few imaginary datasets I've created for you to play with:
 
 ```r
 x
-```
-
-```
-## # A tibble: 3 x 2
+## # A tibble: 3 × 2
 ##      id some_variable
 ##   <dbl> <chr>        
 ## 1     1 x1           
@@ -36,12 +33,10 @@ x
 ## 3     3 x3
 ```
 
+
 ```r
 y
-```
-
-```
-## # A tibble: 3 x 2
+## # A tibble: 3 × 2
 ##      id some_other_variable
 ##   <dbl> <chr>              
 ## 1     1 y1                 
@@ -49,12 +44,10 @@ y
 ## 3     4 y4
 ```
 
+
 ```r
 national_data
-```
-
-```
-## # A tibble: 9 x 5
+## # A tibble: 9 × 5
 ##   state  year unemployment inflation population
 ##   <chr> <dbl>        <dbl>     <dbl>      <dbl>
 ## 1 GA     2018          5         2          100
@@ -68,12 +61,10 @@ national_data
 ## 9 CO     2020          5.1       2.5        400
 ```
 
+
 ```r
 national_data_2019
-```
-
-```
-## # A tibble: 3 x 4
+## # A tibble: 3 × 4
 ##   state unemployment inflation population
 ##   <chr>        <dbl>     <dbl>      <dbl>
 ## 1 GA             5.3       1.8        200
@@ -81,12 +72,10 @@ national_data_2019
 ## 3 CO             4.4       2.6        300
 ```
 
+
 ```r
 national_libraries
-```
-
-```
-## # A tibble: 6 x 4
+## # A tibble: 6 × 4
 ##   state  year libraries schools
 ##   <chr> <dbl>     <dbl>   <dbl>
 ## 1 CO     2018       230     470
@@ -97,24 +86,20 @@ national_libraries
 ## 6 NC     2020       220     530
 ```
 
+
 ```r
 national_libraries_2019
-```
-
-```
-## # A tibble: 2 x 3
+## # A tibble: 2 × 3
 ##   state libraries schools
 ##   <chr>     <dbl>   <dbl>
 ## 1 CO          240     440
 ## 2 NC          210     590
 ```
 
+
 ```r
 puerto_rico_data
-```
-
-```
-## # A tibble: 3 x 4
+## # A tibble: 3 × 4
 ##   state unemployment population  year
 ##   <chr>        <dbl>      <dbl> <dbl>
 ## 1 PR             3.1        150  2018
@@ -122,12 +107,10 @@ puerto_rico_data
 ## 3 PR             3.3        350  2020
 ```
 
+
 ```r
 state_regions
-```
-
-```
-## # A tibble: 51 x 2
+## # A tibble: 51 × 2
 ##    region    state
 ##    <chr>     <chr>
 ##  1 West      AK   
@@ -176,20 +159,16 @@ There is technically a function named `bind_cols()`, but you'll rarely want to u
 bind_cols(national_data, 
           # Repeat PR 3 times so that it has the same number of rows as national_data
           bind_rows(puerto_rico_data, puerto_rico_data, puerto_rico_data))
-```
-
-```
 ## New names:
-## * state -> state...1
-## * year -> year...2
-## * unemployment -> unemployment...3
-## * population -> population...5
-## * state -> state...6
-## * ...
-```
-
-```
-## # A tibble: 9 x 9
+## • `state` -> `state...1`
+## • `year` -> `year...2`
+## • `unemployment` -> `unemployment...3`
+## • `population` -> `population...5`
+## • `state` -> `state...6`
+## • `unemployment` -> `unemployment...7`
+## • `population` -> `population...8`
+## • `year` -> `year...9`
+## # A tibble: 9 × 9
 ##   state...1 year...2 unemployment...3 inflation population...5 state...6
 ##   <chr>        <dbl>            <dbl>     <dbl>          <dbl> <chr>    
 ## 1 GA            2018              5         2              100 PR       
@@ -228,10 +207,7 @@ Let's look at two datasets, `x` and `y`:
 
 ```r
 x
-```
-
-```
-## # A tibble: 3 x 2
+## # A tibble: 3 × 2
 ##      id some_variable
 ##   <dbl> <chr>        
 ## 1     1 x1           
@@ -239,12 +215,10 @@ x
 ## 3     3 x3
 ```
 
+
 ```r
 y
-```
-
-```
-## # A tibble: 3 x 2
+## # A tibble: 3 × 2
 ##      id some_other_variable
 ##   <dbl> <chr>              
 ## 1     1 y1                 
@@ -259,10 +233,7 @@ If we use `inner_join()`, the resulting dataset will only keep the rows from the
 
 ```r
 inner_join(x, y, by = "id")
-```
-
-```
-## # A tibble: 2 x 3
+## # A tibble: 2 × 3
 ##      id some_variable some_other_variable
 ##   <dbl> <chr>         <chr>              
 ## 1     1 x1            y1                 
@@ -277,10 +248,7 @@ You can also write this with pipes, which is really common when working with **d
 ```r
 x %>% 
   inner_join(y, by = "id")
-```
-
-```
-## # A tibble: 2 x 3
+## # A tibble: 2 × 3
 ##      id some_variable some_other_variable
 ##   <dbl> <chr>         <chr>              
 ## 1     1 x1            y1                 
@@ -292,10 +260,7 @@ Let's say we have two datasets: `national_data_2019` and `national_libraries_201
 
 ```r
 national_data_2019
-```
-
-```
-## # A tibble: 3 x 4
+## # A tibble: 3 × 4
 ##   state unemployment inflation population
 ##   <chr>        <dbl>     <dbl>      <dbl>
 ## 1 GA             5.3       1.8        200
@@ -303,12 +268,10 @@ national_data_2019
 ## 3 CO             4.4       2.6        300
 ```
 
+
 ```r
 national_libraries_2019
-```
-
-```
-## # A tibble: 2 x 3
+## # A tibble: 2 × 3
 ##   state libraries schools
 ##   <chr>     <dbl>   <dbl>
 ## 1 CO          240     440
@@ -335,10 +298,7 @@ Left joining is less destructive than inner joining. With left joining, any rows
 
 ```r
 left_join(x, y, by = "id")
-```
-
-```
-## # A tibble: 3 x 3
+## # A tibble: 3 × 3
 ##      id some_variable some_other_variable
 ##   <dbl> <chr>         <chr>              
 ## 1     1 x1            y1                 
@@ -365,10 +325,7 @@ Left joining is also often surprisingly helpful for recoding lots of variables. 
 
 ```r
 state_regions
-```
-
-```
-## # A tibble: 51 x 2
+## # A tibble: 51 × 2
 ##    region    state
 ##    <chr>     <chr>
 ##  1 West      AK   
@@ -399,10 +356,7 @@ You can also join by multiple columns. So far we've been working with just `nati
 
 ```r
 national_data
-```
-
-```
-## # A tibble: 9 x 5
+## # A tibble: 9 × 5
 ##   state  year unemployment inflation population
 ##   <chr> <dbl>        <dbl>     <dbl>      <dbl>
 ## 1 GA     2018          5         2          100
@@ -433,10 +387,7 @@ If one dataset has things like state and year, but another only has state, `left
 national_data_with_region <- national_data %>% 
   left_join(state_regions, by = "state")
 national_data_with_region
-```
-
-```
-## # A tibble: 9 x 6
+## # A tibble: 9 × 6
 ##   state  year unemployment inflation population region
 ##   <chr> <dbl>        <dbl>     <dbl>      <dbl> <chr> 
 ## 1 GA     2018          5         2          100 South 
@@ -460,14 +411,8 @@ So far, the column names in both datasets have been the same, which has greatly 
 ```r
 national_data %>% 
   left_join(national_libraries)
-```
-
-```
 ## Joining, by = c("state", "year")
-```
-
-```
-## # A tibble: 9 x 7
+## # A tibble: 9 × 7
 ##   state  year unemployment inflation population libraries schools
 ##   <chr> <dbl>        <dbl>     <dbl>      <dbl>     <dbl>   <dbl>
 ## 1 GA     2018          5         2          100        NA      NA
@@ -490,10 +435,7 @@ But what if the column names don't match? Let's rename the state column in our s
 state_regions_different <- state_regions %>% 
   rename(ST = state)
 state_regions_different
-```
-
-```
-## # A tibble: 51 x 2
+## # A tibble: 51 × 2
 ##    region    ST   
 ##    <chr>     <chr>
 ##  1 West      AK   
@@ -515,10 +457,8 @@ Now watch what happens when we try to join the datasets:
 ```r
 national_data %>% 
   left_join(state_regions_different)
-```
-
-```
-## Error: `by` must be supplied when `x` and `y` have no common variables.
+## Error in `left_join()`:
+## ! `by` must be supplied when `x` and `y` have no common variables.
 ## ℹ use by = character()` to perform a cross-join.
 ```
 
@@ -535,10 +475,7 @@ We can do option two by modifying the `by` argument like so:
 ```r
 national_data %>% 
   left_join(state_regions_different, by = c("state" = "ST"))
-```
-
-```
-## # A tibble: 9 x 6
+## # A tibble: 9 × 6
 ##   state  year unemployment inflation population region
 ##   <chr> <dbl>        <dbl>     <dbl>      <dbl> <chr> 
 ## 1 GA     2018          5         2          100 South 
@@ -565,10 +502,7 @@ Watch what happens if we right join `national_data` and `state_regions`:
 ```r
 national_data %>% 
   right_join(state_regions, by = "state")
-```
-
-```
-## # A tibble: 57 x 6
+## # A tibble: 57 × 6
 ##    state  year unemployment inflation population region
 ##    <chr> <dbl>        <dbl>     <dbl>      <dbl> <chr> 
 ##  1 GA     2018          5         2          100 South 
@@ -592,10 +526,7 @@ If we reverse the order, we'll get the correct merged data:
 ```r
 state_regions %>% 
   right_join(national_data, by = "state")
-```
-
-```
-## # A tibble: 9 x 6
+## # A tibble: 9 × 6
 ##   region state  year unemployment inflation population
 ##   <chr>  <chr> <dbl>        <dbl>     <dbl>      <dbl>
 ## 1 West   CO     2018          4.7       2.7        200
