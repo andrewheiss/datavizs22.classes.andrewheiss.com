@@ -8,6 +8,7 @@ private/*
 resources/_gen/*
 blogdown/md5sum.txt
 themes/*
+.vscode/*
 
 *.zip
 temp_figs/*
