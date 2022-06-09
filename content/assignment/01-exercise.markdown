@@ -69,7 +69,7 @@ editor_options:
 
     <img src="../../../../../../../img/assignments/insert-chunk-button.png" width="19%" />
 
-3. Use `ggplot()` to create a scatterplot using the `mpg` dataset. Use whatever variables you want. Type the code to create the plot in the new empty chunk.
+3. Use `ggplot()` to create a scatterplot using the `cars` dataset. Use whatever variables you want. Type the code to create the plot in the new empty chunk.
 
 4. Knit your document as a Word file (or PDF if you're brave and [installed LaTeX](/resource/install/#install-tinytex)). Use the "Knit" menu:
 
