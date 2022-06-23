@@ -19,6 +19,7 @@ slides: "09-slides"
 
 -   <i class="fas fa-book"></i> [Chapter 17](https://clauswilke.com/dataviz/redundant-coding.html), [Chapter 18](https://clauswilke.com/dataviz/multi-panel-figures.html), [Chapter 19](https://clauswilke.com/dataviz/figure-titles-captions.html), and [Chapter 21](https://clauswilke.com/dataviz/small-axis-labels.html) in Claus Wilke, *Fundamentals of Data Visualization*[^1]
 -   <i class="fas fa-book"></i> [Chapter 5](http://socviz.co/workgeoms.html) in Kieran Healy, *Data Visualization*[^2]
+-   <i class="fas fa-external-link-square-alt"></i> Cara Thompson, [“Level Up Your Labels: Tips and Tricks for Annotating Plots”](https://www.cararthompson.com/talks/user2022)
 
 ## Slides
 
