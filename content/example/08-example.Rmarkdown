@@ -210,14 +210,14 @@ ggsave("china_co2.png", plot_china, width = 1, height = 0.15, units = "in")
 
 You can then use those saved tiny plots in your text.
 
-> Both India <img class="img-inline" src="/example/08-example_files/figure-html/india-spark-1.png" width = "100"/> and China <img class="img-inline" src="/example/08-example_files/figure-html/china-spark-1.png" width = "100"/> have seen increased CO~2~ emissions over the past 20 years.
+> Both India <img class="img-inline" src="/example/08-example_files/figure-html/india-spark-1.png" width = "100"/> and China <img class="img-inline" src="/example/08-example_files/figure-html/china-spark-1.png" width = "100"/> have seen increased CO<sub>2</sub> emissions over the past 20 years.
 
 
 ### Slopegraphs
 
 We can make a slopegraph to show changes in GDP per capita between two time periods. We need to first filter our WDI to include only the start and end years (here 1995 and 2015). Then, to make sure that we're using complete data, we'll get rid of any country that has missing data for either 1995 or 2015. The `group_by(...) %>% filter(...) %>% ungroup()` pipeline does this, with the `!any(is.na(gdp_per_cap))` test keeping any rows where any of the `gdp_per_cap` values are not missing for the whole country.
 
-We then add a couple special columns for labels. The `paste0()` function concatenates strings and variables together, so that `paste0("2 + 2 = ", 2 + 2)` would show "2 + 2 = 4". Here we make labels that say either "Country name: \$GDP" or "\$GDP" depending on the year.
+We then add a couple special columns for labels. The `paste0()` function concatenates strings and variables together, so that `paste0("2 + 2 = ", 2 + 2)` would show "2 + 2 = 4". Here we make labels that say either "Country name: <span>$GDP</span>" or "<span>$GDP</span>" depending on the year.
 
 ```{r slopegraph-sa-data}
 gdp_south_asia <- wdi_clean %>% 
@@ -298,7 +298,7 @@ ggplot(gdp_south_asia, aes(x = year, y = gdp_per_cap, group = country, color = c
 
 ### Bump charts
 
-Finally, we can make a bump chart that shows changes in rankings over time. We'll look at CO~2~ emissions in South Asia. First we need to calculate a new variable that shows the rank of each country within each year. We can do this if we group by year and then use the `rank()` function to rank countries by the `co2_emissions` column.
+Finally, we can make a bump chart that shows changes in rankings over time. We'll look at CO<sub>2</sub> emissions in South Asia. First we need to calculate a new variable that shows the rank of each country within each year. We can do this if we group by year and then use the `rank()` function to rank countries by the `co2_emissions` column.
 
 ```{r filter-bump-data}
 sa_co2 <- wdi_clean %>% 
