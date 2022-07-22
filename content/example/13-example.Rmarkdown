@@ -81,6 +81,19 @@ little_women_raw <- read_csv(here::here("static", "data", "little_women_raw.csv"
 tragedies_raw <- read_csv(here::here("static", "data", "tragedies_raw.csv"))
 ```
 
+**IMPORTANT NOTE**: Sometimes the Project Gutenberg server gets too much traffic and goes down temporarily (it's all run by volunteers!) and you'll get an error like this:
+
+```text
+Warning: Could not download a book at http://aleph.gutenberg.org/...
+```
+
+Project Gutenberg has multiple copies of itself on different servers around the world, called "mirrors." You can see [the full list of mirrors here](https://www.gutenberg.org/MIRRORS.ALL). If you get an error about connecting to the main Project Gutenberg server (aleph.gutenberg.org), you can specify a different mirror with the `mirror` argument in `gutenberg_download()`:
+
+```{r gutenberg-mirror, eval=FALSE}
+little_women_raw <- gutenberg_download(514, meta_fields = "title",
+                                       mirror = "https://gutenberg.pglaf.org/")
+```
+
 If you won't want to redownload the books every time you knit (you don't), you can do the same trick we've used for [WDI](/example/08-example/) and [FRED data](/example/11-example/). Put the actual code for getting the books in a chunk with `eval=FALSE` on it and run it manually in RStudio when you want to get the data. Then you can write the downloaded data as a CSV file, and then load it invisibly from the CSV file when you knit:
 
 ````text
