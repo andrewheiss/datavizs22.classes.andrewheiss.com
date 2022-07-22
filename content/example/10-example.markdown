@@ -221,7 +221,7 @@ Finally, if we want to save this plot as a standalone self-contained HTML file, 
 
 ``` r
 # This is like ggsave, but for interactive HTML plots
-interactive_plot <- static_plot_toolip_fancy
+interactive_plot <- ggplotly(static_plot_toolip_fancy, tooltip = "text")
 
 htmlwidgets::saveWidget(interactive_plot, "fancy_plot.html")
 ```
